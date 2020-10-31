@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/root"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="horizontal"
+    android:layout_margin="@dimen/_10sdp"
+    app:cardElevation="@dimen/_15sdp"
+    app:cardCornerRadius="@dimen/_3sdp"
+    >
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layoutDirection="rtl"
+        >
+        <ImageView
+            android:visibility="gone"
+            android:id="@+id/settings"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_3sdp"
+            app:srcCompat="@drawable/ic_settings_mine"
+            />
+
+        <LinearLayout
+            android:visibility="gone"
+            android:id="@+id/update"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_140sdp"
+            android:orientation="vertical"
+            android:layoutDirection="ltr"
+            >
+            <TextView
+                android:layout_weight="1"
+                android:fontFamily="@font/items"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textSize="@dimen/_15ssp"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:text="ضع التقييم هنا"
+                android:layout_marginEnd="@dimen/_5sdp"
+                android:gravity="center_horizontal"
+                />
+            <RelativeLayout
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <RatingBar
+                    android:id="@+id/therating"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:max="5"
+                    android:numStars="5"
+                    android:stepSize="1" />
+            </RelativeLayout>
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_weight="1"
+                android:id="@+id/thecomment"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="تعليق"
+                android:fontFamily="@font/et"
+                android:paddingEnd="@dimen/_3sdp"
+                android:textColorHint="#B36A6465"
+                android:textAlignment="viewEnd"
+                />
+            <RelativeLayout
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="@dimen/_100sdp"
+                android:layout_marginEnd="@dimen/_100sdp"
+                >
+                <ProgressBar
+                    android:id="@+id/wait_update"
+                    android:visibility="gone"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"/>
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/theupdate"
+                android:fontFamily="@font/et"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                style="@style/green"
+                android:text="عدل"
+                android:textStyle="bold"
+                android:textSize="@dimen/_12ssp"
+                />
+            </RelativeLayout>
+
+        </LinearLayout>
+
+    <ProgressBar
+        android:visibility="gone"
+            android:id="@+id/wait"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_100sdp"
+            android:layout_margin="@dimen/_15sdp"
+            />
+
+    <RelativeLayout
+        android:id="@+id/commentt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        tools:ignore="UselessParent">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        >
+
+        <RelativeLayout
+            android:layout_width="@dimen/_60sdp"
+            android:layout_height="@dimen/_60sdp"
+            android:layout_margin="@dimen/_15sdp"
+            >
+
+        <pl.droidsonroids.gif.GifImageView
+            android:id="@+id/gif"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/loadd"
+            />
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/profile_image"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:civ_border_width="@dimen/_1sdp"
+            app:civ_border_color="@color/black"/>
+
+        </RelativeLayout>
+
+      <LinearLayout
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:orientation="horizontal"
+          >
+          <ImageView
+              android:layout_width="@dimen/_10sdp"
+              android:layout_height="@dimen/_10sdp"
+              app:srcCompat="@drawable/ic_calendar"
+              android:layout_margin="@dimen/_3sdp"
+              />
+          <TextView
+              android:id="@+id/ddate"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:textColor="#656161"
+              android:singleLine="true"
+              android:textStyle="bold"
+              android:gravity="center_vertical"
+              />
+      </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/cmnt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_margin="@dimen/_10sdp"
+        >
+       <TextView
+           android:id="@+id/name"
+           android:fontFamily="@font/et"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:textColor="@color/black"
+           android:textSize="@dimen/_9ssp"
+           android:singleLine="true"
+           android:gravity="right"
+           android:textStyle="bold"
+           />
+        <RatingBar
+            android:id="@+id/rate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:numStars="5"
+            android:isIndicator="true"
+            />
+        <TextView
+            android:id="@+id/ccomment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_12ssp"
+            android:layout_margin="@dimen/_5sdp"
+            android:gravity="right"
+            />
+    </LinearLayout>
+    </LinearLayout>
+    </RelativeLayout>
+
+    </RelativeLayout>
+
+    </com.google.android.material.card.MaterialCardView>

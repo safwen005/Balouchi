@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav2"
+    app:startDestination="@id/news">
+
+    <fragment
+        android:id="@id/news"
+        android:name="com.example.balouchi.ui.news.news"
+        android:label="thenews"
+        >
+        <action
+            android:id="@+id/action_news_to_specific_categorie"
+            app:destination="@id/specific_categorie" />
+        <action
+            android:id="@+id/action_news_to_all_categories"
+            app:destination="@id/all_categories"
+            app:enterAnim="@anim/slide_left"
+            />
+        <action
+            android:id="@+id/action_news_to_logout"
+            app:destination="@id/logout" />
+        <action
+            android:id="@+id/action_news_to_profilee"
+            app:destination="@id/profilee" />
+        <action
+            android:id="@+id/action_news_to_post2"
+            app:destination="@id/post2" />
+        <action
+            android:id="@+id/action_news_to_product"
+            app:destination="@id/product" />
+        <action
+            android:id="@+id/action_news_to_conversation"
+            app:destination="@id/conversation" />
+    </fragment>
+    <fragment
+        android:id="@id/searchh"
+        android:name="com.example.balouchi.ui.search.search"
+        android:label="thesearch" >
+        <action
+            android:id="@+id/action_searchh_to_profilee"
+            app:destination="@id/profilee" />
+        <action
+            android:id="@+id/action_searchh_to_specific_categorie"
+            app:destination="@id/specific_categorie" />
+    </fragment>
+    <fragment
+        android:id="@id/message"
+        android:name="com.example.balouchi.messages"
+        android:label="themessages" >
+        <action
+            android:id="@+id/action_message_to_profilee"
+            app:destination="@id/profilee" />
+        <action
+            android:id="@+id/action_message_to_conversation"
+            app:destination="@id/conversation" />
+        <action
+            android:id="@+id/action_message_to_specific_categorie"
+            app:destination="@id/specific_categorie" />
+        <action
+            android:id="@+id/action_message_to_product"
+            app:destination="@id/product" />
+    </fragment>
+    <fragment
+        android:id="@+id/specific_categorie"
+        android:name="com.example.balouchi.ui.specific_Categorie.Specific_categorie"
+        android:label="specific_categorie">
+        <argument
+            android:name="products"
+            app:argType="com.example.balouchi.data.repository.login.user.product.product_data"
+            android:defaultValue="@null" />
+        <argument
+            android:name="categorie"
+            app:argType="integer"
+            android:defaultValue="@null" />
+        <action
+            android:id="@+id/action_specific_categorie_to_product"
+            app:destination="@id/product" />
+        <action
+            android:id="@+id/action_specific_categorie_to_post2"
+            app:destination="@id/post2" />
+    </fragment>
+    <fragment
+        android:id="@+id/all_categories"
+        android:name="com.example.balouchi.ui.all_categories.all_categories"
+        android:label="all_categories" >
+        <action
+            android:id="@+id/action_all_categories_to_post2"
+            app:destination="@id/post2" />
+        <action
+            android:id="@+id/action_all_categories_to_specific_categorie"
+            app:destination="@id/specific_categorie" />
+        <action
+            android:id="@+id/action_all_categories_to_profilee"
+            app:destination="@id/profilee" />
+    </fragment>
+    <fragment
+        android:id="@+id/profilee"
+        android:name="com.example.balouchi.ui.profile.profile"
+        android:label="theprofile">
+        <action
+            android:id="@+id/action_profilee_to_post22"
+            app:destination="@id/post2" />
+        <argument
+            android:name="uid"
+            app:argType="string"
+            android:defaultValue="@null" />
+        <action
+            android:id="@+id/action_profilee_to_product"
+            app:destination="@id/product" />
+        <action
+            android:id="@+id/action_profilee_to_specific_categorie"
+            app:destination="@id/specific_categorie" />
+    </fragment>
+    <fragment
+        android:id="@+id/settings3"
+        android:name="com.example.balouchi.ui.settings.settings"
+        android:label="settings" >
+        <action
+            android:id="@+id/action_settings3_to_profilee"
+            app:destination="@id/profilee" />
+    </fragment>
+    <fragment
+        android:id="@+id/post2"
+        android:name="com.example.balouchi.ui.post.Post"
+        android:label="post" >
+        <argument
+            android:name="path"
+            app:argType="string"
+            android:defaultValue="@null" />
+        <action
+            android:id="@+id/action_post2_to_profilee"
+            app:destination="@id/profilee" />
+        <action
+            android:id="@+id/action_post2_to_complete_post"
+            app:destination="@id/complete_post" />
+        <action
+            android:id="@+id/action_post2_to_specific_categorie"
+            app:destination="@id/specific_categorie" />
+    </fragment>
+    <fragment
+        android:id="@+id/complete_post"
+        android:name="com.example.balouchi.ui.complete_post.complete_post"
+        android:label="complete_post" >
+        <argument
+            android:name="product"
+            app:argType="com.example.balouchi.data.repository.login.user.product.Products"
+            android:defaultValue="@null" />
+        <action
+            android:id="@+id/action_complete_post_to_profilee"
+            app:destination="@id/profilee" />
+        <action
+            android:id="@+id/action_complete_post_to_specific_categorie"
+            app:destination="@id/specific_categorie" />
+    </fragment>
+    <fragment
+        android:id="@+id/product"
+        android:name="com.example.balouchi.ui.product.product"
+        android:label="product" >
+        <argument
+            android:name="path"
+            app:argType="string"
+            android:defaultValue="@null" />
+        <action
+            android:id="@+id/action_product_to_profilee"
+            app:destination="@id/profilee" />
+        <action
+            android:id="@+id/action_product_to_post2"
+            app:destination="@id/post2" />
+        <action
+            android:id="@+id/action_product_to_images"
+            app:destination="@id/images" />
+        <action
+            android:id="@+id/action_product_to_specific_categorie"
+            app:destination="@id/specific_categorie" />
+        <action
+            android:id="@+id/action_product_to_conversation"
+            app:destination="@id/conversation" />
+    </fragment>
+    <fragment
+        android:id="@+id/images"
+        android:name="com.example.balouchi.images"
+        android:label="images" />
+    <fragment
+        android:id="@+id/conversation"
+        android:name="com.example.balouchi.ui.conversation.conversation"
+        android:label="conversation" >
+        <argument
+            android:name="data"
+            app:argType="com.example.balouchi.data.repository.login.user.chat.last"
+            android:defaultValue="@null" />
+    </fragment>
+
+</navigation>

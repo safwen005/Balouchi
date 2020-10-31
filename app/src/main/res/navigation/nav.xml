@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/nav"
+    app:startDestination="@id/login_fragment">
+
+    <fragment
+        android:id="@+id/login_fragment"
+        android:name="com.example.balouchi.ui.login.login_fragment"
+        android:label="login_fragment" >
+        <action
+            android:id="@+id/action_login_fragment_to_forget_fragment"
+            app:destination="@id/forget_fragment" />
+        <action
+            android:id="@+id/action_login_fragment_to_phone_fragment"
+            app:destination="@id/phone_fragment" />
+        <action
+            android:id="@+id/action_login_fragment_to_register_fragment"
+            app:destination="@id/register_fragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/forget_fragment"
+        android:name="com.example.balouchi.ui.forget.forget_fragment"
+        android:label="forget_fragment" />
+    <fragment
+        android:id="@+id/register_fragment"
+        android:name="com.example.balouchi.ui.register.register_fragment"
+        android:label="register_fragment" />
+    <fragment
+        android:id="@+id/phone_fragment"
+        android:name="com.example.balouchi.ui.phone.phone_fragment"
+        android:label="phone_fragment" />
+</navigation>

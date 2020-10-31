@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
+
+    <data>
+        <variable
+            name="viewmodel"
+            type="com.example.balouchi.ui.all_categories.All_Viewmodel" />
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/layout_toolbar"
+    >
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/add_prod"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        app:srcCompat="@drawable/ic_add"
+        app:backgroundTint="#4D7CC3"
+        android:layout_margin="@dimen/_10sdp"
+        android:onClick="@{viewmodel::Click}"
+        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/search"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_40sdp"
+                android:textColorHint="@color/white"
+                android:textAlignment="viewEnd"
+                android:paddingEnd="@dimen/_15sdp"
+                android:textSize="@dimen/_12ssp"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:layout_centerInParent="true"
+                android:background="@drawable/edit_gray"
+                android:hint="أبحث عن أي شيئ"
+                android:layout_margin="@dimen/_20sdp"
+                android:maxLength="30"
+                />
+        </RelativeLayout>
+        <com.google.android.gms.ads.AdView
+            xmlns:ads="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/adView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            ads:adSize="BANNER"
+            ads:adUnitId="ca-app-pub-3940256099942544/6300978111">
+        </com.google.android.gms.ads.AdView>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/all_categories_recycler"
+            android:layout_marginStart="@dimen/_5sdp"
+            android:layout_marginEnd="@dimen/_5sdp"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            />
+    </LinearLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+</layout>

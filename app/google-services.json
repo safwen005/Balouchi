@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "90303152038",
+    "firebase_url": "https://balouchi-5993a.firebaseio.com",
+    "project_id": "balouchi-5993a",
+    "storage_bucket": "balouchi-5993a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:90303152038:android:f25fdcd2e23ac3d878d967",
+        "android_client_info": {
+          "package_name": "com.example.balouchi"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "90303152038-7mkpvr1ietci28vbdt1vvhb5of8c9jhe.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.balouchi",
+            "certificate_hash": "e76be1aeebb0a6930dba2b47c0afaf8f6c80aa08"
+          }
+        },
+        {
+          "client_id": "90303152038-sve6acr8u6dts8pv7o6gsv34m9apd13b.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCdVWestoCDd15nt3oE9D6OytHg6aklUak"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "90303152038-sve6acr8u6dts8pv7o6gsv34m9apd13b.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

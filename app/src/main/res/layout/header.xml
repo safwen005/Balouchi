@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:fresco="http://schemas.android.com/tools"
+    android:background="@drawable/layout_toolbar"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/_150sdp">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+
+    <RelativeLayout
+        android:layout_weight="1.5"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/profile_image"
+            android:layout_width="@dimen/_60sdp"
+            android:layout_height="@dimen/_60sdp"
+            android:layout_centerInParent="true"
+            app:civ_border_width="@dimen/_2sdp"
+            app:civ_border_color="#ffff"/>
+
+
+    </RelativeLayout>
+
+    <TextView
+        android:layout_weight="1"
+        android:id="@+id/fullname"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:text="safsaf"
+        android:fontFamily="@font/et"
+        android:textColor="#ffff"
+        android:textSize="@dimen/_17sdp"
+        android:textStyle="bold"
+        android:singleLine="true"
+        />
+    </LinearLayout>
+
+</RelativeLayout>

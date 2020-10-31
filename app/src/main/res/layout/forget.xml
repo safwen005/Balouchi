@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
+
+    <data>
+        <variable
+            name="viewmodel"
+            type="com.example.balouchi.ui.forget.Forget_viewmodel" />
+    </data>
+
+    <LinearLayout
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+    <LinearLayout
+        android:layout_weight="1.2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+
+        <Space
+            android:layout_weight="1.5"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:ignore="NestedWeights" />
+
+        <RelativeLayout
+            android:layout_weight="1.7"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            >
+            <TextView
+                android:fontFamily="@font/et"
+                android:id="@+id/message"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="بالضغط على ارسل ستصلك رسالة عبر بريدك الألكتروني"
+                android:textSize="@dimen/_11ssp"
+                android:gravity="center"
+                android:textColor="@color/gray"
+                android:textStyle="bold"
+                android:layout_centerInParent="true"
+                />
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/msg"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textColorHint="#F6F6F6"
+                android:textAlignment="viewEnd"
+                android:paddingEnd="@dimen/_15sdp"
+                android:layout_centerInParent="true"
+                android:background="@drawable/edit_gray"
+                android:layout_marginStart="@dimen/_27sdp"
+                android:layout_marginEnd="@dimen/_27sdp"
+                android:layout_marginTop="@dimen/_19sdp"
+                android:layout_marginBottom="@dimen/_19sdp"
+                android:inputType="textEmailAddress"
+                android:text="@={viewmodel.email}"
+                />
+            <TextView
+                android:id="@+id/text"
+                android:fontFamily="@font/et"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textSize="@dimen/_13ssp"
+                android:text="عنوان البريد الألكتروني"
+                android:gravity="center_vertical"
+                android:textColor="@color/gray"
+                android:layout_marginEnd="@dimen/_40sdp"
+                />
+        </RelativeLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_weight="1.2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        >
+
+        <LinearLayout
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="vertical"
+            >
+            <RelativeLayout
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                >
+                <LinearLayout
+                    android:layout_width="@dimen/_250sdp"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:background="@drawable/checkbox"
+                    android:layout_margin="@dimen/_5sdp"
+                    android:layout_centerInParent="true"
+                    >
+                    <TextView
+                        android:layout_weight="2.5"
+                        android:textSize="@dimen/_10ssp"
+                        android:gravity="center"
+                        android:textColor="@color/gray"
+                        android:text="التحقق"
+                        android:textStyle="bold"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"/>
+                    <LinearLayout
+                        android:layout_weight="1"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        >
+
+                        <RelativeLayout
+                            android:layout_weight="1.5"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            >
+                            <ProgressBar
+                                android:visibility="invisible"
+                                android:id="@+id/progress"
+                                android:layout_width="@dimen/_20sdp"
+                                android:layout_height="@dimen/_20sdp"
+                                android:layout_centerInParent="true"
+                                />
+                            <pl.droidsonroids.gif.GifImageView
+                                android:visibility="invisible"
+                                android:id="@+id/valid"
+                                android:layout_width="@dimen/_20sdp"
+                                android:layout_height="@dimen/_20sdp"
+                                android:layout_centerInParent="true"
+                                />
+                            <ImageView
+                                android:id="@+id/empty"
+                                android:layout_width="@dimen/_20sdp"
+                                android:layout_height="@dimen/_20sdp"
+                                android:layout_centerInParent="true"
+                                android:background="@drawable/checkbox"
+                                android:onClick="@{viewmodel::Click}"
+                                />
+                        </RelativeLayout>
+
+                        <TextView
+                            android:layout_weight="1"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:textSize="@dimen/_15ssp"
+                            android:textColor="@color/black"
+                            android:text="لست روبوت"
+                            android:layout_marginStart="@dimen/_10sdp"
+                            android:gravity="end|center_vertical"
+                            />
+                        <ImageView
+                            android:layout_weight="1"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            app:srcCompat="@drawable/ic_captcha"
+                            />
+                    </LinearLayout>
+                </LinearLayout>
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_weight="1.2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:layout_marginBottom="@dimen/_13sdp"
+                >
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/send"
+                    android:fontFamily="@font/et"
+                    android:layout_centerHorizontal="true"
+                    android:layout_width="@dimen/_140sdp"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/btn"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_8ssp"
+                    style="@style/blue"
+                    android:textStyle="bold"
+                    android:text="ارسل"
+                    android:onClick="@{viewmodel::Click}"
+                    />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_weight="1.2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="@dimen/_20sdp"
+                >
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/back"
+                    android:fontFamily="@font/et"
+                    android:layout_centerHorizontal="true"
+                    android:layout_width="@dimen/_140sdp"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/btn"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_8ssp"
+                    style="@style/blue"
+                    android:textStyle="bold"
+                    android:text="العودة"
+                    android:onClick="@{viewmodel::Click}"
+                    />
+            </RelativeLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+</LinearLayout>
+
+</layout>

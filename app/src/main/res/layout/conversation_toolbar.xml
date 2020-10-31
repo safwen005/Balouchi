@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/tool"
+    android:layout_width="match_parent"
+    android:layout_height="?attr/actionBarSize"
+    app:layout_collapseMode="pin"
+    android:background="@drawable/layout_toolbar">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="@dimen/_45sdp"
+            android:layout_height="@dimen/_45sdp"
+            android:layout_toStartOf="@id/client"
+            android:layout_marginStart="@dimen/_10sdp"
+            >
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/profile_image"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:civ_border_width="@dimen/_2sdp"
+                app:civ_border_color="@color/white"
+                android:layout_margin="@dimen/_5sdp"
+                />
+            <ImageView
+                android:id="@+id/disponible"
+                android:layout_width="@dimen/_4sdp"
+                android:layout_height="@dimen/_4sdp"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:background="@drawable/offline"
+                android:layout_marginStart="@dimen/_10sdp"
+                />
+        </RelativeLayout>
+        <TextView
+            android:fontFamily="@font/et"
+            android:id="@+id/client"
+            android:layout_width="@dimen/_150sdp"
+            android:layout_height="wrap_content"
+            android:textColor="#ffff"
+            android:singleLine="true"
+            android:textSize="@dimen/_15ssp"
+            android:gravity="center"
+            android:layout_centerInParent="true"
+            />
+    </RelativeLayout>
+</androidx.appcompat.widget.Toolbar>
+

@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
+
+    <data>
+        <variable
+            name="viewmodel"
+            type="com.example.balouchi.ui.phone.Phone_viewmodel" />
+    </data>
+
+<LinearLayout
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    >
+
+    <LinearLayout
+        android:layout_weight="1.2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+
+        <Space
+            android:id="@+id/balouchi"
+            android:layout_weight="1.7"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:ignore="NestedWeights" />
+
+        <RelativeLayout
+            android:layout_weight="1.1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            >
+            <TextView
+                android:fontFamily="@font/et"
+                android:id="@+id/message"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="بالضغط على أرسل ستصلك رسالة على هاتفك قم بأدخال هذا الرمز و قم بعدها بالضغط على تسجيل الدخول"                android:textSize="@dimen/_11ssp"
+                android:gravity="center"
+                android:textStyle="bold"
+                android:textColor="@color/gray"
+                android:layout_margin="@dimen/_7sdp"
+                android:layout_centerInParent="true"
+                />
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/number"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textColorHint="@color/black"
+                android:textAlignment="viewEnd"
+                android:paddingEnd="@dimen/_15sdp"
+                android:layout_centerInParent="true"
+                android:background="@drawable/edit_gray"
+                android:layout_marginStart="@dimen/_26sdp"
+                android:layout_marginEnd="@dimen/_26sdp"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:layout_marginBottom="@dimen/_15sdp"
+                android:text="@={viewmodel.numberr}"
+                android:maxLength="8"
+                android:hint="رقم الهاتف"
+                android:inputType="numberDecimal"
+                />
+        </RelativeLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_weight="1.2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        >
+
+        <LinearLayout
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            >
+            <RelativeLayout
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                >
+                <LinearLayout
+                    android:layout_width="@dimen/_250sdp"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:background="@drawable/checkbox"
+                    android:layout_centerInParent="true"
+                    >
+                    <TextView
+                        android:layout_weight="2.5"
+                        android:textSize="@dimen/_10ssp"
+                        android:gravity="center"
+                        android:textColor="#8E8D8D"
+                        android:text="التحقق"
+                        android:textStyle="bold"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"/>
+                    <LinearLayout
+                        android:layout_weight="1"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        >
+
+                        <RelativeLayout
+                            android:layout_weight="1.5"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            >
+                            <ProgressBar
+                                android:visibility="invisible"
+                                android:id="@+id/progress"
+                                android:layout_width="@dimen/_20sdp"
+                                android:layout_height="@dimen/_20sdp"
+                                android:layout_centerInParent="true"
+                                />
+                            <pl.droidsonroids.gif.GifImageView
+                                android:visibility="invisible"
+                                android:id="@+id/check"
+                                android:layout_width="@dimen/_20sdp"
+                                android:layout_height="@dimen/_20sdp"
+                                android:layout_centerInParent="true"
+                                />
+                            <ImageView
+                                android:id="@+id/empty"
+                                android:layout_width="@dimen/_20sdp"
+                                android:layout_height="@dimen/_20sdp"
+                                android:layout_centerInParent="true"
+                                android:background="@drawable/checkbox"
+                                android:onClick="@{viewmodel::Click}"
+                                />
+                        </RelativeLayout>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginStart="@dimen/_10sdp"
+                            android:layout_weight="1"
+                            android:gravity="end|center_vertical"
+                            android:text="لست روبوت"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_12ssp" />
+                        <ImageView
+                            android:layout_weight="1"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            app:srcCompat="@drawable/ic_captcha"
+                            />
+                    </LinearLayout>
+                </LinearLayout>
+            </RelativeLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layoutDirection="rtl"
+                android:layout_marginStart="@dimen/_35sdp"
+                android:gravity="center_vertical"
+                >
+                <CheckBox
+                    android:id="@+id/agree"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/_20sdp"
+                    android:checked="@={viewmodel.checked}"
+                    />
+                <TextView
+                    android:fontFamily="@font/et"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/_8ssp"
+                    android:text="أوافق على"
+                    android:textColor="@color/black"
+                    android:layout_marginEnd="@dimen/_5sdp"
+                    />
+                <TextView
+                    android:fontFamily="@font/et"
+                    android:id="@+id/bounoud"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/_8ssp"
+                    android:text="البنود"
+                    android:textStyle="bold"
+                    android:textColor="@color/strong_blue"
+                    android:layout_marginEnd="@dimen/_5sdp"
+                    android:onClick="@{viewmodel::Click}"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/_8ssp"
+                    android:text="و"
+                    android:textColor="@color/black"
+                    android:layout_marginEnd="@dimen/_5sdp"
+                    />
+                <TextView
+                    android:id="@+id/siasa"
+                    android:fontFamily="@font/et"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/_8ssp"
+                    android:text="سياسة الخصوصية"
+                    android:textStyle="bold"
+                    android:textColor="@color/strong_blue"
+                    android:layout_marginEnd="@dimen/_5sdp"
+                    android:onClick="@{viewmodel::Click}"
+                    />
+            </LinearLayout>
+            <RelativeLayout
+                android:layout_weight="1.3"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/_7sdp"
+                android:layout_marginBottom="@dimen/_7sdp"
+                >
+                <com.google.android.material.button.MaterialButton
+                    android:fontFamily="@font/et"
+                    android:id="@+id/send"
+                    android:layout_centerHorizontal="true"
+                    android:layout_width="@dimen/_140sdp"
+                    android:layout_height="match_parent"
+                    style="@style/blue"
+                    android:background="@drawable/btn"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_8ssp"
+                    android:textStyle="bold"
+                    android:text="ارسل"
+                    android:onClick="@{viewmodel::Click}"
+                    />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_weight="1.35"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="@dimen/_8sdp"
+                >
+                <com.google.android.material.button.MaterialButton
+                    android:fontFamily="@font/et"
+                    android:id="@+id/back"
+                    android:layout_centerHorizontal="true"
+                    android:layout_width="@dimen/_140sdp"
+                    android:layout_height="match_parent"
+                    style="@style/blue"
+                    android:background="@drawable/btn"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_8ssp"
+                    android:textStyle="bold"
+                    android:text="العودة"
+                    />
+            </RelativeLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+</LinearLayout>
+
+</layout>

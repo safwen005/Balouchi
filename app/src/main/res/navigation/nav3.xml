@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav3"
+    app:startDestination="@id/settings2">
+
+
+    <fragment
+        android:id="@+id/settings2"
+        android:name="com.example.balouchi.ui.settings.settings"
+        android:label="settings" >
+        <action
+            android:id="@+id/action_settings2_to_update_location"
+            app:destination="@id/update_location" />
+        <action
+            android:id="@+id/action_settings2_to_hide_show"
+            app:destination="@id/hide_show" />
+        <action
+            android:id="@+id/action_settings2_to_update_password"
+            app:destination="@id/update_password" />
+
+        <action
+            android:id="@+id/action_settings2_to_update_profile"
+            app:destination="@id/update_profile" />
+        <action
+            android:id="@+id/action_settings2_to_update_phone"
+            app:destination="@id/update_phone" />
+    </fragment>
+    <fragment
+        android:id="@+id/hide_show"
+        android:name="com.example.balouchi.ui.hide_show.hide_show"
+        android:label="hide_show" />
+    <fragment
+        android:id="@+id/update_location"
+        android:name="com.example.balouchi.ui.update_location.update_location"
+        android:label="update_location" />
+    <fragment
+        android:id="@+id/update_password"
+        android:name="com.example.balouchi.ui.update_password.update_password"
+        android:label="update_password" />
+
+    <fragment
+        android:id="@+id/update_profile"
+        android:name="com.example.balouchi.ui.update_profile.update_profile"
+        android:label="update_profile" />
+    <fragment
+        android:id="@+id/update_phone"
+        android:name="com.example.balouchi.ui.update_phone.update_phone"
+        android:label="update_phone" />
+</navigation>

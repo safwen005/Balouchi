@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_weight="2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <ImageView
+            android:id="@+id/msg"
+            android:layout_weight="1"
+            android:layout_width="@dimen/_100sdp"
+            android:layout_height="@dimen/_100sdp"
+            android:layout_centerInParent="true"
+            app:srcCompat="@drawable/ic_notification_empty"
+            />
+    </RelativeLayout>
+    <TextView
+        android:id="@+id/nothing"
+        android:layout_weight="1.5"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="لا شيئ هنا !!"
+        android:textSize="@dimen/_30ssp"
+        android:textColor="#000000"
+        android:textStyle="bold"
+        android:gravity="center_horizontal"
+        />
+
+</LinearLayout>

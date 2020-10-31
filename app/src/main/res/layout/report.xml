@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    android:id="@+id/root"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:id="@+id/img"
+            android:layout_width="@dimen/_50sdp"
+            android:layout_height="@dimen/_50sdp"
+            app:srcCompat="@drawable/ic_skull"
+            android:layout_centerHorizontal="true"
+            />
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/_180sdp"
+            android:layout_below="@id/img"
+            android:orientation="vertical"
+            >
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                app:cardCornerRadius="@dimen/_10sdp"
+                >
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:background="@drawable/skull"
+                    >
+                    <RelativeLayout
+                        android:layout_weight="1"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="@dimen/_20sdp"
+                        android:layout_marginEnd="@dimen/_20sdp"
+                        android:layout_marginTop="@dimen/_35sdp"
+                        android:background="@drawable/spinner"
+                        android:orientation="horizontal">
+
+                        <Spinner
+                            android:id="@+id/spinnerr"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_gravity="center"
+                            android:background="@android:color/transparent"
+                            android:gravity="center"
+                            android:layout_marginEnd="5dp"
+                            android:spinnerMode="dropdown" />
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentStart="true"
+                            android:layout_centerVertical="true"
+                            android:layout_gravity="center"
+                            app:srcCompat="@drawable/ic_down" />
+
+                    </RelativeLayout>
+                    <RelativeLayout
+                        android:layout_weight="1.1"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/msg"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:textColorHint="#F6F6F6"
+                            android:textAlignment="viewEnd"
+                            android:paddingEnd="@dimen/_15sdp"
+                            android:layout_centerInParent="true"
+                            android:background="@drawable/edit_gray"
+                            android:layout_marginTop="@dimen/_10sdp"
+                            android:layout_marginBottom="@dimen/_10sdp"
+                            android:layout_marginStart="@dimen/_20sdp"
+                            android:layout_marginEnd="@dimen/_20sdp"
+                            />
+                        <TextView
+                            android:id="@+id/insideqsdsqmsg"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:textSize="@dimen/_15ssp"
+                            android:text="أكتب الرسالة"
+                            android:gravity="center_vertical"
+                            android:textColor="@color/gray"
+                            android:layout_marginEnd="@dimen/_35sdp"
+                            />
+                    </RelativeLayout>
+
+
+                    <LinearLayout
+                        android:layout_weight="1.2"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:layout_marginStart="@dimen/_35sdp"
+                        android:layout_marginEnd="@dimen/_35sdp"
+                        >
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/backr"
+                            android:layout_weight="1"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            style="@style/red"
+                            android:textSize="@dimen/_7ssp"
+                            android:layout_marginEnd="@dimen/_5sdp"
+                            android:text="العودة"
+                            />
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/search"
+                            android:layout_weight="1"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:textSize="@dimen/_7ssp"
+                            android:layout_marginStart="@dimen/_5sdp"
+                            style="@style/blue"
+                            android:text="أرسل"
+                            />
+                    </LinearLayout>
+                    <Space
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_10sdp"/>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+        </LinearLayout>
+    </RelativeLayout>
+</FrameLayout>

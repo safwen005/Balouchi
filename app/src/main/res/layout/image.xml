@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="@dimen/_100sdp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/blue"
+    android:layout_margin="@dimen/_20sdp">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="@dimen/_1sdp"
+        >
+        <RelativeLayout
+            android:visibility="gone"
+            android:id="@+id/mytest"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/layout_toolbar"
+            >
+        <ImageView
+            android:id="@+id/cancel"
+            android:layout_width="@dimen/_16sdp"
+            android:layout_height="@dimen/_16sdp"
+            app:srcCompat="@drawable/ic_cchange"
+            android:layout_alignParentEnd="true"
+            android:layout_margin="@dimen/_5sdp"
+            />
+
+        <ImageView
+            android:id="@+id/remove"
+            android:layout_width="@dimen/_100sdp"
+            android:layout_height="match_parent"
+            app:srcCompat="@drawable/ic_rec_delete"
+            android:layout_centerInParent="true"
+            android:layout_margin="@dimen/_35sdp"
+            />
+        </RelativeLayout>
+        <RelativeLayout
+            android:id="@+id/mytest2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+    <pl.droidsonroids.gif.GifImageView
+        android:id="@+id/gif"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/loadd"
+        />
+    <ImageView
+        android:id="@+id/myimage"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="fitXY"
+        />
+        </RelativeLayout>
+    </RelativeLayout>
+</com.google.android.material.card.MaterialCardView>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <group android:id="@+id/group" android:checkableBehavior="single">
+
+        <item android:id="@+id/news"
+            android:title="الصفحة الرئيسية"
+            android:icon="@drawable/nav_home"/>
+
+        <item android:id="@+id/profilee"
+            android:title="الملف الشخصي"
+            android:icon="@drawable/nav_profile"/>
+
+        <item android:id="@+id/searchh"
+            android:title="إبحث عن أي شيئ"
+            android:icon="@drawable/nav_search"/>
+
+        <item android:id="@+id/message"
+            android:title="الرسائل و الاشعارات"
+            android:icon="@drawable/nav_message"/>
+
+
+
+        <item android:id="@+id/setting"
+            android:title="الإعدادات"
+            android:icon="@drawable/nav_settings"/>
+
+        <item android:id="@+id/logout"
+            android:title="الخروج"
+            android:icon="@drawable/nav_logout"/>
+
+    </group>
+</menu>

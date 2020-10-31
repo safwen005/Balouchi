@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    >
+
+    <ImageView
+        android:layout_weight="2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:srcCompat="@drawable/ic_nointernet"
+        android:layout_margin="@dimen/_25sdp"
+        />
+
+    <ImageView
+        android:layout_weight="2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:srcCompat="@drawable/ic_wifi"
+        android:layout_margin="@dimen/_5sdp"
+        />
+    <LinearLayout
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_weight="1.5"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_30ssp"
+            android:text="لا يوجد انترنت"
+            android:gravity="center"
+            android:fontFamily="@font/et"
+            />
+        <TextView
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_17ssp"
+            android:gravity="center_horizontal"
+            android:text="تأكد من أشتغال الواي فاي أو البيانات الخليوية \n \n ثم حاول مجددا"
+            android:layout_margin="@dimen/_10sdp"
+            />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/retry"
+            android:layout_weight="1.5"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            style="@style/blue"
+            android:layout_margin="@dimen/_10sdp"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:textSize="@dimen/_15ssp"
+            android:text="حاول مجددا"
+            />
+    </LinearLayout>
+
+
+
+
+</LinearLayout>

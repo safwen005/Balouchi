@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/_260sdp"
+    android:orientation="vertical"
+    android:layout_margin="@dimen/_10sdp"
+    >
+
+    <LinearLayout
+        android:layout_weight="7"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        >
+
+        <Button
+            android:id="@+id/watch__all"
+            android:layout_weight="3"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            style="@style/blue"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_8ssp"
+            android:textStyle="bold"
+            android:text="شاهد الكل"
+            />
+        <TextView
+            android:id="@+id/categorie_name"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="@dimen/_6sdp"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_13ssp"
+            android:textAlignment="viewEnd"
+            android:textStyle="bold"
+            android:gravity="end|center_vertical"
+            />
+    </LinearLayout>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyr"
+        android:layout_weight="1"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+</LinearLayout>

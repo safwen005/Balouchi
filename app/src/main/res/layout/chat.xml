@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
+
+    <data>
+        <variable
+            name="viewmodel"
+            type="com.example.balouchi.ui.chat.Chat_Viewmodel" />
+    </data>
+
+    <LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/layout_toolbar"
+    >
+
+
+    <include
+        android:visibility="gone"
+        android:id="@+id/empty"
+        layout="@layout/chat_empty"/>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/chat_recycler"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+        />
+
+</LinearLayout>
+</layout>

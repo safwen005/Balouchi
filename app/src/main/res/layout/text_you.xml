@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_marginTop="@dimen/_10sdp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
+
+
+    <RelativeLayout
+        android:layout_width="@dimen/_200sdp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_15sdp"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:layout_marginBottom="@dimen/_5sdp"
+        >
+        <com.github.library.bubbleview.BubbleTextView
+            android:id="@+id/texting"
+            android:fontFamily="@font/et"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/_10ssp"
+            android:padding="10dp"
+            android:textColor="@android:color/black"
+            android:textStyle="bold"
+            android:gravity="end"
+            android:textAlignment="viewEnd"
+            app:arrowWidth="8dp"
+            app:angle="8dp"
+            app:arrowHeight="10dp"
+            app:arrowPosition="14dp"
+            app:arrowLocation="right"
+            app:arrowCenter="true"
+            app:bubbleColor="@color/white"/>
+
+        <LinearLayout
+            android:id="@+id/time_3"
+            android:layout_below="@+id/texting"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="start"
+            android:layout_marginTop="@dimen/_5sdp"
+            >
+            <TextView
+                android:id="@+id/date"
+                android:fontFamily="@font/et"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_10ssp"
+                android:gravity="center"
+                android:layout_gravity="center"
+                />
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/ic_me"
+                android:layout_marginStart="@dimen/_5sdp"
+                android:layout_gravity="center"
+                />
+        </LinearLayout>
+    </RelativeLayout>
+</LinearLayout>

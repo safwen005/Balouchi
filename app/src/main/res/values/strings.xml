@@ -1,0 +1,83 @@
+<resources>
+    <string name="app_name">balouchi</string>
+    <string name="drawer_open">Open</string>
+    <string name="drawer_close">Close</string>
+    <string name="policy">https://sites.google.com/view/balouchi-privacy-policy/accueil</string>
+    <string name="terms">https://sites.google.com/view/balouchi-terms-conditions/accueil</string>
+
+    <string-array name="spi">
+        <item>الأحدث</item>
+        <item>السعر:من الأصغر للأكبر</item>
+        <item>السعر:من الأكبر للأصغر</item>
+    </string-array>
+
+    <string-array name="categories">
+        <item>السيارات و الدراجات</item>
+        <item>إلكترونيات</item>
+        <item>الموضة</item>
+        <item>الأثاث</item>
+        <item>الحيوانات</item>
+        <item>الهواتف , الكسسوارات</item>
+        <item>الحواسيب ، الأجهزة لوحية</item>
+        <item>العائلة ، الطفل ، الرضيع</item>
+        <item>الأطعمة</item>
+        <item>الصحة والجمال</item>
+        <item>الوظائف</item>
+        <item>وقت الفراغ ، الهواية ، الحي</item>
+        <item>   الدروس والدورات</item>
+        <item>الموسيقى والأفلام والكتب</item>
+        <item>عرض ، تبادل</item>
+        <item>العقارات</item>
+        <item>الخدمات</item>
+        <item>التذاكر</item>
+        <item>التجارة</item>
+    </string-array>
+
+    <string-array name="casee">
+        <item>جديد</item>
+        <item>مستعمل</item>
+    </string-array>
+
+    <string-array name="garanty">
+        <item>نعم</item>
+        <item>لا</item>
+    </string-array>
+
+    <string-array name="buysell">
+        <item>بيع</item>
+        <item>شراء</item>
+    </string-array>
+
+
+    <string-array name="countrys">
+        <item>أريانة</item>
+        <item>باجة</item>
+        <item>بن عروس</item>
+        <item>بنزرت</item>
+        <item>تطاوين</item>
+        <item>توزر</item>
+        <item>تونس</item>
+        <item>جندوبة</item>
+        <item>زغوان</item>
+        <item>سليانة</item>
+        <item>سوسة</item>
+        <item>سيدي بوزيد</item>
+        <item>صفاقس</item>
+        <item>قابس</item>
+        <item>قبلي</item>
+        <item>القصرين</item>
+        <item>قفصة</item>
+        <item>القيروان</item>
+        <item>الكاف</item>
+        <item>مدنين</item>
+        <item>المنستير</item>
+        <item>منوبة</item>
+        <item>المهدية</item>
+        <item>نابل</item>
+    </string-array>
+    <string name="facebook_app_id">3093984150647701</string>
+    <string name="fb_login_protocol_scheme">fb3093984150647701</string>
+    <string name="title_activity_maps">Map</string>
+
+
+</resources>

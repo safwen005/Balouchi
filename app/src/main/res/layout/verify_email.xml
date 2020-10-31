@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:ignore="NestedWeights"
+    >
+
+    <data>
+        <variable
+            name="viewmodel"
+            type="com.example.balouchi.ui.verify.Verify_viewmodel" />
+    </data>
+
+    <LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/layout_toolbar"
+        >
+
+
+        <ImageView
+            android:id="@+id/msg"
+            android:layout_weight="2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:srcCompat="@drawable/ic_verify"
+            android:layout_margin="@dimen/_50sdp"
+            />
+
+    <TextView
+        android:id="@+id/nothing"
+        android:layout_weight="2.7"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fontFamily="@font/et"
+        android:text=" لقد أرسلنا لك رسالة عبر الإيميل لتفعيل حسابك"
+        android:textSize="@dimen/_22ssp"
+        android:layout_margin="@dimen/_7sdp"
+        android:textColor="@color/white"
+        android:gravity="center_horizontal"
+        />
+    <RelativeLayout
+        android:visibility="invisible"
+        android:id="@+id/captcha"
+        android:layout_weight="2.8"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+        <LinearLayout
+            android:layout_width="@dimen/_250sdp"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:background="@drawable/checkbox"
+            android:layout_centerInParent="true"
+            >
+            <TextView
+                android:layout_weight="2.5"
+                android:textSize="@dimen/_8ssp"
+                android:gravity="center"
+                android:textColor="#8E8D8D"
+                android:text="التحقق"
+                android:textStyle="bold"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+            <LinearLayout
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                >
+
+                <RelativeLayout
+                    android:layout_weight="1.5"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    >
+                    <ProgressBar
+                        android:visibility="invisible"
+                        android:id="@+id/progress"
+                        android:layout_width="@dimen/_20sdp"
+                        android:layout_height="@dimen/_20sdp"
+                        android:layout_centerInParent="true"
+                        />
+                    <pl.droidsonroids.gif.GifImageView
+                        android:visibility="invisible"
+                        android:id="@+id/check"
+                        android:layout_width="@dimen/_20sdp"
+                        android:layout_height="@dimen/_20sdp"
+                        android:layout_centerInParent="true"
+                        />
+                    <ImageView
+                        android:id="@+id/v_empty"
+                        android:layout_width="@dimen/_20sdp"
+                        android:layout_height="@dimen/_20sdp"
+                        android:layout_centerInParent="true"
+                        android:background="@drawable/checkbox"
+                        android:onClick="@{viewmodel::Click}"
+                        />
+                </RelativeLayout>
+
+                <TextView
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:textSize="@dimen/_12ssp"
+                    android:textColor="@color/black"
+                    android:text="لست روبوت"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:gravity="end|center_vertical"
+                    />
+                <ImageView
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:srcCompat="@drawable/ic_captcha"
+                    />
+            </LinearLayout>
+        </LinearLayout>
+    </RelativeLayout>
+    <LinearLayout
+        android:layout_weight="2.3"
+        android:layout_width="@dimen/_210sdp"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_marginBottom="@dimen/_5sdp"
+        android:layout_gravity="center_horizontal"
+        >
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/reload"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            style="@style/orange"
+            android:fontFamily="@font/et"
+            android:text="تحديث الصفحة"
+            android:drawableLeft="@drawable/ic_reload"
+            android:textSize="@dimen/_12ssp"
+            android:onClick="@{viewmodel::Click}"
+            />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            >
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/resend"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                style="@style/blue"
+                android:text="لم تستلم ؟ أرسل مجددا"
+                android:textSize="@dimen/_11ssp"
+                android:fontFamily="@font/et"
+                android:onClick="@{viewmodel::Click}"
+                />
+            <ProgressBar
+                android:visibility="invisible"
+                android:id="@+id/sending"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+        </RelativeLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/v_logout"
+            android:layout_weight="1"
+            android:fontFamily="@font/et"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            style="@style/red"
+            android:text="خروج"
+            android:textSize="@dimen/_11ssp"
+            android:onClick="@{viewmodel::Click}"
+            />
+
+        <com.google.android.material.button.MaterialButton
+            android:layout_weight="1"
+            android:id="@+id/continuee"
+            android:fontFamily="@font/et"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            style="@style/green"
+            android:text="واصل ، سأتحقق لاحقا"
+            android:textSize="@dimen/_11ssp"
+            android:onClick="@{viewmodel::Click}"
+            />
+
+
+
+    </LinearLayout>
+</LinearLayout>
+
+</layout>

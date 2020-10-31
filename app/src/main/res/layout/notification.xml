@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    >
+
+    <data>
+        <variable
+            name="viewmodel"
+            type="com.example.balouchi.ui.notification.Notification_Viewodel" />
+    </data>
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/layout_toolbar"
+    >
+
+    <include
+        android:visibility="gone"
+        android:id="@+id/empty"
+        layout="@layout/notification_empty"
+        />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/noti_recycler"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+</LinearLayout>
+</layout>
