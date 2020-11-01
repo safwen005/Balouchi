@@ -13,10 +13,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.balouchi.R
 import com.example.balouchi.databinding.LoginBinding
-import com.example.balouchi.util.log
-import com.example.balouchi.util.toast
-import com.example.balouchi.util.toastg
-import com.example.balouchi.util.toastr
+import com.example.balouchi.util.*
 import com.facebook.CallbackManager
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.common.api.ApiException
@@ -53,11 +50,17 @@ class login_fragment : Fragment(){
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         this.view.prepare()
+        requireActivity().apply {
+            view.apply {
+                anim(gmail,R.anim.gm)
+                anim(fb,R.anim.fb)
+            }
+        }
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        callbackManager?.onActivityResult(requestCode, resultCode, data).also { log("fb") }
+        callbackManager?.onActivityResult(requestCode, resultCode, data)
         if (requestCode==22 && resultCode==Activity.RESULT_OK){
                 try {
                     val account = GoogleSignIn.getSignedInAccountFromIntent(data).getResult(ApiException::class.java)

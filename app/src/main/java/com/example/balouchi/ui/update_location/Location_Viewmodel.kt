@@ -72,6 +72,7 @@ class Location_Viewmodel : ViewModel() {
                             dialog!!.dismiss()
                             toastg("تم التعديل بنجاح !")
                             onBackPressed()
+                            ad()
                         }
                         return@addOnCompleteListener
                     }

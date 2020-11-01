@@ -190,6 +190,9 @@
             android:name="data"
             app:argType="com.example.balouchi.data.repository.login.user.chat.last"
             android:defaultValue="@null" />
+        <action
+            android:id="@+id/action_conversation_to_specific_categorie"
+            app:destination="@id/specific_categorie" />
     </fragment>
 
 </navigation>

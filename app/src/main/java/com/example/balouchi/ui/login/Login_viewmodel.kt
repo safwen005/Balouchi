@@ -42,12 +42,10 @@ class Login_viewmodel() : ViewModel() {
     lateinit var My_Auth: Authh
     lateinit var My_manage_user: manage_user
 
-
     @Inject
     lateinit var gmail: gmail
     @Inject
     lateinit var facebook: facebook
-
 
 
     fun Click(V: View) {
@@ -143,6 +141,7 @@ class Login_viewmodel() : ViewModel() {
                     ) {obj, response ->
                         firebaseAuth(it,false)
                     }
+
                     request.executeAsync()
                     return
                 }

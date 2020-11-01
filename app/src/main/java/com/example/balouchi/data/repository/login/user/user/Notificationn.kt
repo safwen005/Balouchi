@@ -8,8 +8,6 @@ import java.io.Serializable
 data class Notificationn(
     @JsonProperty("sender")
     var sender:String?=null,
-    @JsonProperty("type")
-    var type:Boolean?=null,
     @JsonProperty("date")
     var date:Long?=null,
     @JsonProperty("picture")

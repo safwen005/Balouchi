@@ -19,7 +19,7 @@ import java.text.SimpleDateFormat
 import java.util.*
 import kotlin.collections.ArrayList
 
-class Chat_recycler(var c: Context, var list:ArrayList<last>) : RecyclerView.Adapter<Chat_recycler.myhold>() {
+class Chat_recycler(var c: Context, var list:ArrayList<last>,val stop:()->Unit) : RecyclerView.Adapter<Chat_recycler.myhold>() {
 
 
 
@@ -67,6 +67,7 @@ class Chat_recycler(var c: Context, var list:ArrayList<last>) : RecyclerView.Ada
             setOnClickListener {
                 (c as home).view.NavController.navigate(R.id.action_message_to_conversation,
                     if (list.size>0) bundleOf("data" to list[position]) else null)
+                stop()
             }
                     online?.let {
                         disponible.setBackgroundResource(if (it) R.drawable.disponible else R.drawable.offline)

@@ -99,7 +99,6 @@ class Specific_Viewmodel : ViewModel() {
                             results.text=it.size.toString()
                             anim(results, R.anim.show_frame)
                             prepare_recycler()
-
                             addOnScrollListener(object: RecyclerView.OnScrollListener() {
                                 override fun onScrollStateChanged(
                                     recyclerView: RecyclerView,

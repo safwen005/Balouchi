@@ -43,8 +43,8 @@ class profile : Fragment() {
 
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
+    override fun onResume() {
+        super.onResume()
         viewmodel.apply {
             my_uid=arguments?.getString("uid")
             LoadInfo()

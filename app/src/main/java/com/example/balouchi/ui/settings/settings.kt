@@ -9,6 +9,11 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.balouchi.R
 import com.example.balouchi.databinding.SettingsBinding
+import com.example.balouchi.util.myad
+import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.InterstitialAd
+import com.google.android.gms.ads.MobileAds
+import kotlinx.android.synthetic.main.settings.*
 
 class settings : Fragment() {
 
@@ -46,27 +51,14 @@ class settings : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-
-        /*
-        MobileAds.initialize(requireActivity()) {}
+        requireActivity().apply {
+        MobileAds.initialize(this)
         val adRequest = AdRequest.Builder().build()
         vv.apply {
-            adView.loadAd(adRequest)
-            var mInterstitialAd = InterstitialAd(requireActivity())
-            mInterstitialAd.adUnitId = "ca-app-pub-3940256099942544/1033173712"
-            mInterstitialAd.loadAd(AdRequest.Builder().build())
-            onoff.setOnClickListener {
-                if (mInterstitialAd.isLoaded) {
-                    mInterstitialAd.show()
-                } else {
-                    Log.i("myapp", "The interstitial wasn't loaded yet.")
-                }
-            }
-
+            settingsad.loadAd(adRequest)
         }
 
-         */
-
+        }
     }
 
 

@@ -28,7 +28,6 @@ class Notification_Viewodel :ViewModel() {
 
     lateinit var firestore: FirebaseFirestore
 
-    var goo=true
 
     lateinit var myauth: FirebaseAuth
 
@@ -36,17 +35,15 @@ class Notification_Viewodel :ViewModel() {
 
     var dialog: AlertDialog? = null
 
-    val list: ArrayList<Notificationn?> by lazy {
-        ArrayList()
-    }
+    lateinit var list:ArrayList<Notificationn?>
 
     fun prepare() {
-        if (goo) {
             (lifecycleOwner.requireActivity() as home).apply {
                 Activity = this
                 dialog = getSpots()
                 firestore = FirebaseFirestore.getInstance()
                 myauth = FirebaseAuth.getInstance()
+                list=ArrayList()
             }
 
             lifecycleOwner.apply {
@@ -76,25 +73,28 @@ class Notification_Viewodel :ViewModel() {
 
                     val new = ArrayList<Notificationn>()
                     Listener = firestore.collection("notifications/all/" + myauth.currentUser!!.uid)
-                        .addSnapshotListener { value, error ->
+                        .addSnapshotListener {
+                                value, error ->
                             value?.documents?.apply {
-                                new.clear()
-                                forEach {
-                                    it.toObject(Notificationn::class.java)?.let {
-                                        new.add(it)
+                                if (size>0) {
+                                    new.clear()
+                                    forEach {
+                                        it.toObject(Notificationn::class.java)?.let {
+                                            new.add(it)
+                                        }
+                                    }
+                                    new.sortWith(compareByDescending { it.date })
+
+                                    if (list.isEmpty() || new[0].date != list[0]!!.date) {
+                                        list.add(0, new[0])
+                                        lifecycleOwner.noti_recycler?.adapter?.apply {
+                                            notify(0, list.size, true)
+                                            adapter.anim = true
+                                        }
+                                        Activity.sound()
+                                    }
                                     }
                                 }
-                                new.sortWith(compareByDescending { it.date })
-
-                                if (new[0].date != list[0]!!.date) {
-                                    list.add(0, new[0])
-                                    lifecycleOwner.noti_recycler?.adapter?.apply {
-                                        notify(0, itemCount)
-                                        adapter.anim = true
-                                    }
-                                    MediaPlayer.create(Activity, R.raw.juntos).start()
-                                }
-
                             }
                         }
                     noti_recycler.apply {
@@ -135,8 +135,7 @@ class Notification_Viewodel :ViewModel() {
                 }
             }
         }
-    }
-}
+
 
 
 

@@ -161,7 +161,6 @@ class Search_viewmodel : ViewModel() {
 
 
                 mynamee.setOnFocusChangeListener { v, hasFocus ->
-                    log(hasFocus)
                     if (hasFocus) {
                             if (mynamee.filter().isNotEmpty()) {
                                 if (stop){

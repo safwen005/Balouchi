@@ -25,6 +25,9 @@ import com.example.balouchi.ui.profile.Profile_viewmodel
 import com.example.balouchi.ui.specific_Categorie.Specific_Viewmodel
 import com.example.balouchi.ui.verify.verify_email
 import com.example.balouchi.util.*
+import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.InterstitialAd
+import com.google.android.gms.ads.MobileAds
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.storage.FirebaseStorage
 import javax.inject.Inject
@@ -63,6 +66,9 @@ class home() : AppCompatActivity(){
     lateinit var mytools: tools
 
     var news:news?=null
+
+    lateinit var ad:InterstitialAd
+
 
 
     @ExperimentalTime
@@ -232,9 +238,16 @@ class home() : AppCompatActivity(){
 
 
     fun prepare(){
+        MobileAds.initialize(this)
+        ad=myad()
         service=Intent(this, online::class.java)
         auth= FirebaseAuth.getInstance()
         storage= FirebaseStorage.getInstance()
+    }
+
+    fun ad(){
+        if (ad.isLoaded)
+            ad.show()
     }
 
 

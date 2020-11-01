@@ -10,7 +10,6 @@
     app:cardElevation="@dimen/_15sdp"
     >
 
-
     <LinearLayout
         android:id="@+id/root"
         android:layout_width="match_parent"
@@ -31,21 +30,24 @@
             android:gravity="end|center_vertical"
             >
         <TextView
+            android:layout_weight="1"
             android:id="@+id/username"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="@color/soft_blue"
             android:textSize="@dimen/_13sdp"
             android:textStyle="bold"
             android:singleLine="true"
             android:layout_marginEnd="@dimen/_5sdp"
+            android:layout_marginStart="@dimen/_5sdp"
             android:textAlignment="viewEnd"
             android:gravity="center_vertical|end"
             />
             <TextView
+                android:layout_weight="1"
                 android:fontFamily="@font/items"
                 android:id="@+id/content"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="#000000"
                 android:singleLine="true"

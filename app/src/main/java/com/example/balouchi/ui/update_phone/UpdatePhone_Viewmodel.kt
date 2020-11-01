@@ -70,37 +70,18 @@ class UpdatePhone_Viewmodel : ViewModel() {
             Activity.apply {
                 getApp().User.getPhone().setActivity(Activity).setNumber("+216"+number).setPhone_viewmodel(this@UpdatePhone_Viewmodel).builder().getPhone(this@UpdatePhone_Viewmodel)
                 show()
-                phone.verifyPhoneNumber(true).observe(lifecycleOwner, Observer { res ->
-                    log(res)
-                    when {
-                        (res is PhoneAuthCredential) -> {
-                               auth.currentUser!!.reload().addOnCompleteListener {
-                                   if (it.isSuccessful){
-                                       auth.currentUser!!.updatePhoneNumber(res).addOnCompleteListener {
-                                           log(it.result)
-                                           dismiss()
-                                           if (it.isSuccessful){
+                phone.verifyPhoneNumber(true).observe(lifecycleOwner,  { res ->
+                        if (res is PhoneAuthCredential){
+                               auth.currentUser!!.reload().addOnSuccessListener {
+                                       auth.currentUser!!.updatePhoneNumber(res).addOnSuccessListener {
+                                               dismiss()
                                                Activity.onBackPressed()
                                                toastg("تم التعديل بنجاح !")
-                                               return@addOnCompleteListener
-                                           }
-                                           toastr("آسف حاول لاحقا")
+                                               ad()
                                        }
-                                       return@addOnCompleteListener
-                                   }
-                                  auth.signOut()
-                                  finishAffinity()
                                }
                         }
-                        (res is FirebaseAuthInvalidCredentialsException) -> {
-                            if (res.errorCode != "ERROR_INVALID_VERIFICATION_CODE") {
-                                toastr("آسف حاول لاحقا")
-                                dismiss()
-                            }
-                            return@Observer
-                        }
-                    }
-                })
+                 })
             }
         }
     }

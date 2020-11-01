@@ -149,7 +149,6 @@ class Conversation_Viewmodel : ViewModel() {
 
                     ,"noti" to ToMap(Notificationn(
                             myusername,
-                            false,
                             picture = picture,
                             path = path,
                         )),"receiver" to mylast.uid!!,
@@ -182,11 +181,8 @@ class Conversation_Viewmodel : ViewModel() {
         Activity.apply {
         lifecycleOwner.apply {
             data?.let {
-                mydialog!!.show()
                 upload_picture(if (test) it.data else (it.extras?.get("data") as Bitmap)).addOnSuccessListener {
-
                     image.downloadUrl.addOnSuccessListener {
-
                         val conv = Conversation(
                             img =it.toString() ,
                             sender = FirebaseAuth.getInstance().currentUser!!.uid,
@@ -199,7 +195,6 @@ class Conversation_Viewmodel : ViewModel() {
                         val mydata= hashMapOf("path" to path, "conversation" to ToMap(conv))
                         mydata.put("noti",ToMap(Notificationn(
                             myusername,
-                            false,
                             picture = picture,
                             path = path,
                         )))
@@ -210,7 +205,6 @@ class Conversation_Viewmodel : ViewModel() {
                             "sendit",mydata
                         ).observe(viewLifecycleOwner,
                             {
-                                mydialog!!.dismiss()
                                 others.gone()
                                 photoo.visibile()
                                 anim(photoo,R.anim.show)
@@ -310,6 +304,7 @@ class Conversation_Viewmodel : ViewModel() {
                     }
 
                     online=Firestore.document("users/"+mylast.uid).addSnapshotListener {
+
                             value, error ->
                             value?.toObject(user_data::class.java)?.apply {
                                 lastlogin?.let {
@@ -328,7 +323,7 @@ class Conversation_Viewmodel : ViewModel() {
                                 if (mylast.online!!){
                                     mylast.online=false
                                     move=false
-                                    mytool.disponible.setBackgroundResource(R.drawable.offline)
+                                    lifecycleOwner.mytool.disponible.setBackgroundResource(R.drawable.offline)
                                     anim(mytool.disponible,R.anim.show)
                                 }
 
@@ -349,6 +344,7 @@ class Conversation_Viewmodel : ViewModel() {
 
                                 mylist.sortWith(compareBy { it.date })
                                 if (mylist.last().date!=list.last().date){
+                                    mydialog!!.dismiss()
                                     list.add(mylist.last())
 
                                     rec.adapter?.apply {

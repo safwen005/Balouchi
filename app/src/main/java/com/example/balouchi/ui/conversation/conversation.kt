@@ -54,17 +54,9 @@ class conversation : Fragment() {
         view.Display(requestCode==1,data)
     }
 
-    override fun onStop() {
-        super.onStop()
-        stop()
-    }
 
     override fun onDestroy() {
         super.onDestroy()
-        stop()
-    }
-
-    fun stop(){
         requireActivity().save_chat()
         view.apply {
             online?.remove()
@@ -75,6 +67,8 @@ class conversation : Fragment() {
         }
         (requireActivity() as home).camera_storage=null
     }
+
+
 
 }
 

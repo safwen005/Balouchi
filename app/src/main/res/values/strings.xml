@@ -1,7 +1,5 @@
 <resources>
     <string name="app_name">balouchi</string>
-    <string name="drawer_open">Open</string>
-    <string name="drawer_close">Close</string>
     <string name="policy">https://sites.google.com/view/balouchi-privacy-policy/accueil</string>
     <string name="terms">https://sites.google.com/view/balouchi-terms-conditions/accueil</string>
 
@@ -76,7 +74,6 @@
         <item>نابل</item>
     </string-array>
     <string name="facebook_app_id">3093984150647701</string>
-    <string name="fb_login_protocol_scheme">fb3093984150647701</string>
     <string name="title_activity_maps">Map</string>
 
 

@@ -4,6 +4,7 @@ import android.app.Activity
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import com.example.balouchi.util.log
 import com.google.firebase.FirebaseException
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.PhoneAuthCredential
@@ -29,13 +30,12 @@ fun prepare(update:Boolean): LiveData<Any> {
     results.apply {
         PhoneAuthCallback = object : PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
             override fun onVerificationCompleted(PhoneAuthCredential: PhoneAuthCredential) {
-
+                if (update){
+                    value = PhoneAuthCredential
+                    return
+                }
                 user!!.signInWithCredential(PhoneAuthCredential).addOnCompleteListener {
                     if (it.isSuccessful) {
-                        if (update){
-                            value = PhoneAuthCredential
-                            return@addOnCompleteListener
-                        }
                         value = it.result!!.additionalUserInfo!!.isNewUser
                         return@addOnCompleteListener
                     }
@@ -54,12 +54,12 @@ fun prepare(update:Boolean): LiveData<Any> {
             ) {
                 super.onCodeSent(VerificationId, p1)
                 val PhoneAuthCredential = PhoneAuthProvider.getCredential(VerificationId, number)
+                if (update){
+                    value = PhoneAuthCredential
+                    return
+                }
                 user!!.signInWithCredential(PhoneAuthCredential).addOnCompleteListener {
                     if (it.isSuccessful) {
-                        if (update){
-                            value = PhoneAuthCredential
-                            return@addOnCompleteListener
-                        }
                         value = it.result!!.additionalUserInfo!!.isNewUser
                         return@addOnCompleteListener
                     }

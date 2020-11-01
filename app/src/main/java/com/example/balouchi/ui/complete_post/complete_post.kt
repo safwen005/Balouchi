@@ -13,6 +13,9 @@ import com.example.balouchi.R
 import com.example.balouchi.databinding.CompletePostBinding
 import com.example.balouchi.ui.home.home
 import com.example.balouchi.util.log
+import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.MobileAds
+import kotlinx.android.synthetic.main.complete_post.view.*
 
 
 class complete_post(): Fragment() {
@@ -42,6 +45,10 @@ lateinit var vieww:Complete_post_viewmodel
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        MobileAds.initialize(requireActivity())
+        view.completead.loadAd(AdRequest.Builder().build())
+
         vieww.prepare()
     }
 

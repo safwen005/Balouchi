@@ -9,8 +9,9 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.balouchi.R
 import com.example.balouchi.databinding.AllcategoriesBinding
-import com.example.balouchi.ui.home.home
-import com.example.balouchi.util.log
+import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.MobileAds
+import kotlinx.android.synthetic.main.allcategories.view.*
 
 class all_categories : Fragment() {
 
@@ -35,6 +36,12 @@ class all_categories : Fragment() {
         }
 
         return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        MobileAds.initialize(requireActivity())
+            view.allad.loadAd(AdRequest.Builder().build())
     }
 
     override fun onResume() {

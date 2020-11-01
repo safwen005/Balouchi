@@ -115,11 +115,10 @@ class Product_Viewmodel : ViewModel() {
                     Firestore.collection("products").document(auth.currentUser!!.uid).update(
                         "favorite",FieldValue.arrayUnion(product.path)
                     ).addOnCompleteListener {
-                        log(it.result)
-                        log(it.exception?.message)
                          dialog!!.dismiss()
                         if (it.isSuccessful){
                             toastg("تمت إضافة المنشور بنجاح !")
+                            ad()
                             return@addOnCompleteListener
                         }
                         toastr("هنالك مشكلة")
@@ -153,7 +152,6 @@ class Product_Viewmodel : ViewModel() {
                                         data.apply {
                                             put("noti",ToMap(Notificationn(
                                                 it.personal_info?.username,
-                                                true,
                                                 picture = it.personal_info?.ppicture?.path,
                                                 path = path
                                             )))
@@ -176,6 +174,7 @@ class Product_Viewmodel : ViewModel() {
                                                 comment.setText("")
                                                 rating.rating = 0f
                                                 loadmore(true)
+                                                ad()
                                             }
                                      })
                                  }
@@ -200,7 +199,6 @@ class Product_Viewmodel : ViewModel() {
                 }
                 R.id.phonee -> {
                     if (permissions(android.Manifest.permission.CALL_PHONE)){
-                        log("click")
                         call()
                         return
                     }
@@ -306,6 +304,7 @@ class Product_Viewmodel : ViewModel() {
                 lifecycleOwner,
                 {
                     dialog?.dismiss()
+                    log(it)
                     if (it is Boolean){
                         toastr("هنالك مشكلة !")
                         Activity.onBackPressed()

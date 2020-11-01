@@ -2,7 +2,6 @@
 <resources>
     <color name="colorPrimary">#ffff</color>
     <color name="colorPrimaryDark">#FFFFFF</color>
-    <color name="colorAccent">#FFFFFF</color>
     <color name="blue">#203BCF</color>
     <color name="soft_blue">#4D7CC3</color>
     <color name="strong_blue">#2768CA</color>
@@ -10,8 +9,6 @@
     <color name="white">#FFFFFF</color>
     <color name="gray">#8E8D8D</color>
     <color name="softgray">#B6B6B6</color>
-    <color name="littlewhite">#F3F2F2</color>
-    <color name="red">#A80000</color>
     <color name="orange">#FF5722</color>
     <color name="green">#58CAC5</color>
     <color name="dark_red">#930A0A</color>

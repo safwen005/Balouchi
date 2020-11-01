@@ -13,6 +13,7 @@ import com.example.balouchi.ui.home.home
 import com.example.balouchi.ui.notification.notification
 import com.example.balouchi.util.changecolor
 import com.example.balouchi.util.log
+import com.example.balouchi.util.save_chat
 import com.example.balouchi.util.toolbar_text
 import com.google.android.material.tabs.TabLayout
 import kotlinx.android.synthetic.main.messages.*
@@ -22,11 +23,11 @@ import kotlin.time.ExperimentalTime
 
 class messages : Fragment() {
 
-    lateinit var v:View
+   lateinit var v:View
 
-    var mynotification=notification()
+   lateinit var mynotification:notification
 
-    var mychat=chat()
+   lateinit var mychat:chat
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -37,11 +38,16 @@ class messages : Fragment() {
          return v
     }
 
+    fun prepare(){
+        mychat= chat()
+        mynotification= notification()
+    }
+
 
     @ExperimentalTime
-    override fun onResume() {
-        super.onResume()
-        log("onResume messages")
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        prepare()
         (requireActivity() as home).view.menu(true)
         requireActivity().apply {
             toolbar_text(" الرسائل و الاشعارات ")
@@ -62,15 +68,12 @@ class messages : Fragment() {
                         override fun onTabReselected(tab: TabLayout.Tab?) {
                         }
                         override fun onTabSelected(tab: TabLayout.Tab?) {
+                            changecolor(tab, R.color.blue)
                             if (tab?.position==1){
-                                mychat.onDestroy()
-                                mynotification.view.goo=true
-                                mynotification.view.prepare()
+                                mynotification.retry()
                                 return
                             }
-                            mychat.view?.prepare(true)
-                            mynotification.onDestroy()
-                            changecolor(tab, R.color.blue)
+                            mychat.retry()
                         }
                         override fun onTabUnselected(tab: TabLayout.Tab?) {
                             changecolor(tab, R.color.white)
@@ -82,14 +85,9 @@ class messages : Fragment() {
         }
     }
 
-    override fun onStop() {
-        super.onStop()
-        log("onStop messages")
-    }
 
     override fun onDestroy() {
         super.onDestroy()
-        log("onDestroy messages")
         (requireActivity() as home).view.menu(false)
     }
     override fun onCreate(savedInstanceState: Bundle?) {

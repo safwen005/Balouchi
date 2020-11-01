@@ -15,6 +15,8 @@ import com.example.balouchi.data.repository.login.user.user.auth.manage_user
 import com.example.balouchi.data.repository.login.user.user.storage
 import com.example.balouchi.ui.home.home
 import com.example.balouchi.util.*
+import com.google.android.gms.ads.InterstitialAd
+import com.google.android.gms.ads.MobileAds
 import com.google.android.gms.auth.api.Auth
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
@@ -42,6 +44,7 @@ class all_settings : AppCompatActivity() {
 
     var Gps:other_tools.MyLocation?=null
 
+    lateinit var ad:InterstitialAd
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -58,6 +61,8 @@ class all_settings : AppCompatActivity() {
     }
 
     fun prepare(){
+        MobileAds.initialize(this)
+        ad=myad()
         Firestore=FirebaseFirestore.getInstance()
         auth=FirebaseAuth.getInstance()
         mystorage= FirebaseStorage.getInstance()
@@ -140,6 +145,10 @@ class all_settings : AppCompatActivity() {
                 start()
             return
         }
+    }
+    fun ad(){
+        if (ad.isLoaded)
+            ad.show()
     }
 
 

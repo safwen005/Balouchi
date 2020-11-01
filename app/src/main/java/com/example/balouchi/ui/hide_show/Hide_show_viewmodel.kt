@@ -54,6 +54,7 @@ class Hide_show_viewmodel : ViewModel() {
                                 if (it.isSuccessful) {
                                     toastg("تم التغيير بنجاح")
                                     Activity.onBackPressed()
+                                    ad()
                                     return@addOnCompleteListener
                                 }
                                 toastg("هنالك مشكلة !")

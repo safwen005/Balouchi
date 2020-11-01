@@ -57,7 +57,7 @@ class Recycler_noti(var c: Context,val list:ArrayList<Notificationn?>,var anim:B
 
         list[position]!!.apply {
                 holder.itemView.apply {
-                    if (type==null){
+                    if (list[position]!!.date==null){
                         content.apply {
                             setTextColor(ResourcesCompat.getColor(resources,R.color.green,null))
                             text="مرحبا بك !"
@@ -66,7 +66,7 @@ class Recycler_noti(var c: Context,val list:ArrayList<Notificationn?>,var anim:B
                         return
                     }
 
-                    content.text=if (type!!) "لديك تعليق جديد من : " else "لديك رسالة من : "
+                    content.text="لديك تعليق جديد من : "
                     list[position]?.date?.let {
                         calendar.timeInMillis =it
                     }
@@ -118,6 +118,7 @@ class Recycler_noti(var c: Context,val list:ArrayList<Notificationn?>,var anim:B
 
                     setOnClickListener {
                             (c as home).view.NavController.navigate(R.id.action_message_to_product, bundleOf("path" to path))
+
                     }
 
                     username.text=sender

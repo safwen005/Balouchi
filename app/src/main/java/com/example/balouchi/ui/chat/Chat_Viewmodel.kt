@@ -38,7 +38,6 @@ class Chat_Viewmodel: ViewModel() {
     val myrun: (Handler, String, Int) -> Runnable = { handler, uid, pos ->
         object : Runnable {
             override fun run() {
-                log("moves:"+moves[pos].online)
                 if (moves[pos].online) {
                     check_online(handler, uid) {
                         mylast[pos].online = false
@@ -70,8 +69,8 @@ class Chat_Viewmodel: ViewModel() {
     }
 
     @ExperimentalTime
-    fun prepare(go: Boolean = false) {
-        if (go) {
+    fun prepare() {
+        log("chat prepare")
             lifecycleOwner.apply {
                 (requireActivity() as home).apply {
                     save_chat("no")
@@ -86,7 +85,7 @@ class Chat_Viewmodel: ViewModel() {
 
                         layoutManager =
                             LinearLayoutManager(Activty, RecyclerView.VERTICAL, false)
-                        adapter = Chat_recycler(Activty, mylast)
+                        adapter = Chat_recycler(Activty, mylast,{lifecycleOwner.onDestroy()})
 
 
                         nothing.typeface = ResourcesCompat.getFont(Activty, R.font.et)
@@ -110,7 +109,7 @@ class Chat_Viewmodel: ViewModel() {
                                 if (it is ArrayList<*>) {
                                     it.forEach { mylast.add(fromJson(it, last::class)) }
                                     mylast.sortWith(compareByDescending { it.lasts?.date })
-                                    adapter = Chat_recycler(Activty, mylast)
+                                    adapter = Chat_recycler(Activty, mylast,{lifecycleOwner.onDestroy()})
                                     mylast.forEach {
                                         moves.add(
                                             myonline(
@@ -126,7 +125,6 @@ class Chat_Viewmodel: ViewModel() {
                                 mylast.forEach { thelast ->
                                     val pos = mylast.indexOf(thelast)
                                     if (thelast.online!!) {
-                                        log("start")
                                         moves[pos].online = true
                                         moves[pos].run.run()
                                         adapter.notify(pos, mylast.size, false)
@@ -171,7 +169,7 @@ class Chat_Viewmodel: ViewModel() {
                                                     thelast.lasts = new.last()
                                                     mylast.sortWith(compareByDescending { it.lasts?.date })
 
-                                                    adapter = Chat_recycler(Activty, mylast)
+                                                    adapter = Chat_recycler(Activty, mylast,{lifecycleOwner.onDestroy()})
                                                     MediaPlayer.create(Activty, R.raw.juntos)
                                                         .start()
                                                 }
@@ -186,7 +184,6 @@ class Chat_Viewmodel: ViewModel() {
 
                 }
             }
-        }
     }
 }
 

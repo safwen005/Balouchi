@@ -230,7 +230,6 @@
                     android:layout_height="match_parent"
                     android:checked="true"
                     android:theme="@style/switche"
-                    android:onClick="@{viewmodel::onClick}"
                     />
                 <TextView
                     android:id="@+id/txt4"
@@ -258,7 +257,7 @@
 
     <com.google.android.gms.ads.AdView
         xmlns:ads="http://schemas.android.com/apk/res-auto"
-        android:id="@+id/adView"
+        android:id="@+id/settingsad"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"

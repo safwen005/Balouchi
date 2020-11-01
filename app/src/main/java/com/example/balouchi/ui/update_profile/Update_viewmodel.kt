@@ -202,6 +202,7 @@ class Update_viewmodel : ViewModel() {
                                             dialog!!.dismiss()
                                             toastg("تم التعديل بنجاح !")
                                             Activity.onBackPressed()
+                                            ad()
                                         }
 
                                         return@Observer

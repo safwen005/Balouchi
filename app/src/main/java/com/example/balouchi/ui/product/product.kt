@@ -43,10 +43,7 @@ class product : Fragment() {
         view = ViewModelProvider(this).get(Product_Viewmodel::class.java)
 
 
-        view.apply {
-            lifecycleOwner=this@product
-            path=requireArguments().getString("path")!!
-        }
+        view.lifecycleOwner=this@product
 
         binding.apply {
                 viewmodel=view
@@ -59,26 +56,32 @@ class product : Fragment() {
     }
 
     @ExperimentalTime
-    override fun onViewCreated(vieww: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(vieww, savedInstanceState)
-
-
+    override fun onResume() {
+        super.onResume()
         (requireActivity() as home).apply {
             call=this@product.view
             if (tool==null)
                 tool=binding.tool
         }
-
         tool!!.gone()
 
         if(Build.VERSION.SDK_INT>=21)
-            vieww.mytool.elevation=15f
-         view.prepare()
+            binding.root.mytool.elevation=15f
+        view.apply {
+            requireArguments().getString("path")?.let {
+                path=it
+            }
+            prepare()
+        }
     }
 
     override fun onStop() {
         super.onStop()
         tool!!.visibile()
+    }
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setRetainInstance(true)
     }
 
 

@@ -9,11 +9,14 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.balouchi.R
 import com.example.balouchi.databinding.NotificationBinding
+import com.example.balouchi.util.log
 
 class notification() : Fragment() {
 
     lateinit var view:Notification_Viewodel
     lateinit var binding:NotificationBinding
+
+    var listener=false
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -41,11 +44,17 @@ class notification() : Fragment() {
         this.view.prepare()
     }
 
-
-    override fun onStop() {
-        super.onStop()
-        view.goo=false
+    override fun onDestroy() {
+        super.onDestroy()
         view.Listener?.remove()
+        listener=true
     }
+
+    fun retry(){
+        if (listener)
+            view.prepare()
+    }
+
+
 
 }

@@ -122,6 +122,7 @@ class Comments_recycler(var p: Product_Viewmodel, var comments: ArrayList<commen
                                                ddate.text=data.date
                                                settings.svg(R.drawable.ic_settings_mine)
                                                c.anim(commentt, R.anim.show_frame)
+                                               c.ad()
                                            }
 
                                            return@Observer

@@ -21,6 +21,9 @@ import com.example.balouchi.data.repository.login.user.product.product_data
 import com.example.balouchi.ui.location.location
 import com.example.balouchi.util.*
 import com.facebook.Profile
+import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.InterstitialAd
+import com.google.android.gms.ads.MobileAds
 import kotlinx.android.synthetic.main.header.view.*
 import kotlinx.android.synthetic.main.home.*
 import kotlin.collections.ArrayList
@@ -125,17 +128,10 @@ class Home_viewmodel : ViewModel() {
 
                 inflateMenu(R.menu.other_menu)
                 setOnMenuItemClickListener {
-                    /*
-                          if (it.itemId == R.id.location)
-                      location().show(supportFragmentManager, null)
-                     */
-
-                    dialog.show()
-                    manageUser.Function<Any>("sendit").observe(home,  {
-                        log(it)
-                        dialog.dismiss()
-                    })
+                      if (it.itemId == R.id.location)
+                        location().show(supportFragmentManager, null)
                     return@setOnMenuItemClickListener true
+
                 }
                 (menu.findItem(R.id.search).actionView as SearchView).apply {
                     maxWidth = Integer.MAX_VALUE
@@ -208,6 +204,10 @@ class Home_viewmodel : ViewModel() {
                                                     )
                                                 )
                                                 R.id.specific_categorie -> specific?.search(list)
+                                                R.id.conversation -> navigate(R.id.action_conversation_to_specific_categorie,
+                                                    bundleOf(
+                                                        "products" to list
+                                                    ))
                                             }
                                         }
                                         onActionViewCollapsed()

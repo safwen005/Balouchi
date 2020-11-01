@@ -9,6 +9,7 @@ import android.graphics.Color
 import android.graphics.Paint
 import android.graphics.drawable.Drawable
 import android.location.Location
+import android.media.MediaPlayer
 import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
 import android.net.Uri
@@ -46,6 +47,7 @@ import com.fasterxml.jackson.databind.ObjectMapper
 import com.google.android.gms.ads.AdListener
 import com.google.android.gms.ads.AdLoader
 import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.InterstitialAd
 import com.google.android.gms.ads.formats.MediaView
 import com.google.android.gms.ads.formats.UnifiedNativeAd
 import com.google.android.gms.ads.formats.UnifiedNativeAdView
@@ -72,6 +74,9 @@ fun Context?.toastr(text: String){
     val v = toast.view.findViewById<TextView>(android.R.id.message)
     v.setTextColor(Color.RED)
     toast.show()
+}
+fun Activity.sound(){
+    MediaPlayer.create(this, R.raw.juntos).start()
 }
 fun View.visibile(){
     this.visibility= View.VISIBLE
@@ -289,6 +294,18 @@ fun Runnable.check_online(handler: Handler, uid: String, job:()->Unit){
                }
            }
      }
+
+fun Activity.myad():InterstitialAd{
+    val mInterstitialAd = InterstitialAd(this)
+    mInterstitialAd.adUnitId = "ca-app-pub-3940256099942544/1033173712"
+    mInterstitialAd.loadAd(AdRequest.Builder().build())
+    mInterstitialAd.adListener = object : AdListener() {
+        override fun onAdClosed() {
+            mInterstitialAd.loadAd(AdRequest.Builder().build())
+        }
+    }
+    return mInterstitialAd
+}
 
 
 fun Context?.save_new(go: Boolean){

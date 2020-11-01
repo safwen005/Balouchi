@@ -18,10 +18,6 @@
         <item name="android:textSize">@dimen/_12ssp</item>
     </style>
 
-    <style name="menul" parent="Theme.AppCompat">
-        <item name="android:textSize">@dimen/_13ssp</item>
-    </style>
-
     <style name="blue"
         parent="Widget.MaterialComponents.Button">
         <item name="materialThemeOverlay">@style/BlueButtonThemeOverlay</item>
@@ -53,17 +49,7 @@
     <style name="GreenButtonThemeOverlay">
         <item name="colorPrimary">#7EC62B</item>
     </style>
-    <style name="ProgressBarStyle">
-        <item name="colorAccent">#B31111</item>
-    </style>
 
-    <style name="Send" parent="TextAppearance.AppCompat">
-        <item name="colorAccent">#4D7CC3</item>
-        <item name="android:textColorHint">#4D7CC3</item>
-        <item name="colorControlNormal">#4D7CC3</item>
-        <item name="colorControlActivated">#4D7CC3</item>
-        <item name="colorControlHighlight">#4D7CC3</item>
-    </style>
     <style name="switche" parent="Theme.AppCompat.Light">
         <!-- active thumb & track color (30% transparency) -->
         <item name="colorControlActivated">#008EFF</item>
@@ -80,16 +66,8 @@
         </item>
     </style>
 
-    <style name="MyDialogTheme">
-        <item name="android:windowContentOverlay">@null</item>
-    </style>
-
     <style name="CustomDialog" parent="@android:style/Theme.Dialog">
         <item name="android:windowBackground">@android:color/transparent</item>
-    </style>
-
-    <style name="toolbar_title" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
-        <item name="android:textSize">@dimen/_10ssp</item>
     </style>
 
     <style name="tab_font" parent="@android:style/TextAppearance.Widget.TabWidget">

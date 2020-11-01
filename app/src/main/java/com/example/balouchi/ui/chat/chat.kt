@@ -10,6 +10,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.balouchi.R
 import com.example.balouchi.databinding.ChatBinding
 import com.example.balouchi.util.*
+import kotlin.time.ExperimentalTime
 
 class chat() : Fragment() {
 
@@ -17,6 +18,8 @@ class chat() : Fragment() {
 
     var view:Chat_Viewmodel?=null
     lateinit var binding:ChatBinding
+
+    var listener=false
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -38,6 +41,12 @@ class chat() : Fragment() {
         return binding.root
     }
 
+    @ExperimentalTime
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        this.view?.prepare()
+    }
+
     override fun onDestroy() {
         super.onDestroy()
         view?.apply {
@@ -46,7 +55,15 @@ class chat() : Fragment() {
             online.forEach { it.remove() }
         }
         requireActivity().save_chat()
+        listener=true
     }
+
+    @ExperimentalTime
+    fun retry(){
+        if (listener)
+            view?.prepare()
+    }
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

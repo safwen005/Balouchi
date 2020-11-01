@@ -10,6 +10,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.balouchi.R
 import com.example.balouchi.data.repository.login.user.product.product_data
 import com.example.balouchi.databinding.SpecificBinding
+import com.example.balouchi.ui.home.home
 import com.example.balouchi.util.log
 
 
@@ -42,7 +43,12 @@ class Specific_categorie : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-         this.view.prepare()
+        (requireActivity() as home).ad()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        this.view.prepare()
         arguments?.getParcelableArrayList<product_data>("products")?.let {
             this.view.search(it)
             return
@@ -50,8 +56,10 @@ class Specific_categorie : Fragment() {
         arguments?.getInt("categorie")?.let {
             this.view.categorie(it)
         }
-
     }
-
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setRetainInstance(true)
+    }
 
 }

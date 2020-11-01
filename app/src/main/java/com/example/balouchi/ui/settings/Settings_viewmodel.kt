@@ -22,6 +22,7 @@ class Settings_viewmodel : ViewModel() {
     lateinit var Activity:all_settings
     var Alert:AlertDialog?=null
     var navController: NavController?=null
+    var first=true
 
     fun prepare(){
            lifecycleOwner.apply {
@@ -61,6 +62,9 @@ class Settings_viewmodel : ViewModel() {
                          dismiss()
                          it.toObject(user_data::class.java)?.apply {
                              onoff.isChecked=active_notification
+                             onoff.setOnCheckedChangeListener { buttonView, isChecked ->
+                                 start_notification(false)
+                             }
                          }
                      }
                    }
@@ -78,7 +82,6 @@ class Settings_viewmodel : ViewModel() {
                 R.id.mypassword -> start_password()
                 R.id.thephone ->   start_phone()
                 R.id.notification -> start_notification()
-                R.id.onoff -> start_notification()
         }
         }
     }
@@ -107,10 +110,11 @@ class Settings_viewmodel : ViewModel() {
         }
     }
 
-    fun start_notification(){
+    fun start_notification(card:Boolean=true){
             Activity.apply {
                     dialog.apply {
                         lifecycleOwner.apply {
+                          if (card)
                         onoff.isChecked=!onoff.isChecked
                         show()
                         functions.document("users/"+auth.currentUser!!.uid).update(
@@ -119,6 +123,10 @@ class Settings_viewmodel : ViewModel() {
                             dismiss()
                             if (it.isSuccessful){
                                 toastg("تم التغيير بنجاح")
+                                if (first){
+                                    first=false
+                                    ad()
+                                }
                                 return@addOnCompleteListener
                             }
                             toastg("هنالك مشكلة !")

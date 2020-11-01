@@ -114,6 +114,7 @@ class Complete_post_viewmodel : ViewModel() {
                                             (it == true).uploadAll()
                                             return@Observer
                                         }
+                                        ad()
                                         toastg(" تم " + (if (it == true) "التعديل " else " التحميل ") + "بنجاح !")
                                         dialog!!.dismiss()
                                         go(home::class)

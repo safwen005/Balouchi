@@ -52,9 +52,11 @@
         <activity android:name=".all_settings" />
 
         <activity android:name=".images"/>
+
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
             android:value="ca-app-pub-1651660637220352~9175461605" />
+
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"
             android:value="@string/facebook_app_id" />
