@@ -71,7 +71,7 @@ class tools @Inject constructor() {
 
 
     fun captcha(final:pl.droidsonroids.gif.GifImageView,progress:View,empty:View,Context:Application) {
-            if (final.visibility!=View.VISIBLE){
+            if (!final.isVisible()){
                 progress.visibile()
                 empty.invisibile()
                 SafetyNet.getClient(Context).verifyWithRecaptcha(key).addOnCompleteListener{

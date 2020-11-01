@@ -29,7 +29,7 @@ class Register_viewmodel  : ViewModel(){
     var password:String?=null
     var password2:String?=null
     var checked=false
-    var Activity:Activity?=null
+    var Activity:user?=null
 
     lateinit var mydialog: AlertDialog
     lateinit var lifecycleOwner: register_fragment
@@ -54,7 +54,7 @@ class Register_viewmodel  : ViewModel(){
 
     fun start_captcha() {
         lifecycleOwner.apply {
-            mycaptcha=tools()
+            mycaptcha=Activity!!.tools
             mycaptcha.captcha(check,progress,empty,Activity!!.application)
         }
     }

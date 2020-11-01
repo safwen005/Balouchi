@@ -7,6 +7,7 @@ import android.view.animation.AnimationUtils
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModel
 import com.example.balouchi.R
+import com.example.balouchi.data.repository.login.user.tools
 import com.example.balouchi.data.repository.login.user.user.auth.Authh
 import com.example.balouchi.ui.home.home
 import com.example.balouchi.util.*
@@ -24,7 +25,17 @@ class Verify_viewmodel : ViewModel() {
 
     lateinit var dialog:AlertDialog
 
+    lateinit var mycaptcha: tools
 
+    lateinit var Activity:verify_email
+
+
+
+    fun start_captcha() {
+        lifecycleOwner.apply {
+          tools.captcha(check,progress,v_empty,application)
+        }
+    }
 
     fun Click(V: View){
         prepare()
@@ -37,9 +48,9 @@ class Verify_viewmodel : ViewModel() {
             }
             R.id.resend -> {
                 captcha.apply {
-                if (visibility==View.INVISIBLE){
+                if (!isVisible()){
                     visibile()
-                    animation=AnimationUtils.loadAnimation(lifecycleOwner,R.anim.open_edit)
+                    anim(this,R.anim.open_edit)
                     toastr("لم تثبت أنك أنسان")
                     return
                 }
@@ -49,13 +60,14 @@ class Verify_viewmodel : ViewModel() {
                     change(false)
                     if (it==1){
                         toastg("لقد أرسلنا لك رسالة لتفعيل حسابك")
+                        resume(true)
                         return@Observer
                     }
                     toastr((it as Exception).message.toString())
                 })
             }
             R.id.v_empty -> {
-                // CAPTCHA
+                start_captcha()
             }
             R.id.continuee -> {
                 go(home::class)
@@ -77,12 +89,25 @@ class Verify_viewmodel : ViewModel() {
         }
     }
 }
+    fun resume(hide:Boolean=false){
+        lifecycleOwner.apply {
+            if (hide){
+                check.invisibile()
+                v_empty.visibile()
+                captcha.invisibile()
+                anim(captcha,R.anim.close_edit)
+                return
+            }
+            progress.invisibile()
+            v_empty.visibile()
+        }
+    }
+
     fun prepare() {
         lifecycleOwner.apply {
-            if (auth == null) {
                 auth = FirebaseAuth.getInstance()
-                dialog = this.getSpots()
-            }
+                dialog = getSpots()
+                Activity=this
         }
     }
 

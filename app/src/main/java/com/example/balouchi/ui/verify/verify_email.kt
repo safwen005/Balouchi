@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import com.example.balouchi.R
+import com.example.balouchi.data.repository.login.user.tools
 import com.example.balouchi.data.repository.login.user.user.auth.Authh
 import com.example.balouchi.databinding.VerifyEmailBinding
 import com.example.balouchi.ui.login.NoInternetBroad
@@ -20,6 +21,9 @@ class verify_email : AppCompatActivity(){
 
     @Inject
     lateinit var NoInternetBroad: NoInternetBroad
+
+    @Inject
+    lateinit var tools: tools
 
     lateinit var binding:VerifyEmailBinding
     lateinit var view:Verify_viewmodel
@@ -52,6 +56,7 @@ class verify_email : AppCompatActivity(){
 
     override fun onResume() {
         super.onResume()
+        view.resume()
         i=IntentFilter().apply { addAction("android.net.conn.CONNECTIVITY_CHANGE") }
         registerReceiver(NoInternetBroad,i)
     }
