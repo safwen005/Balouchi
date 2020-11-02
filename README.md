@@ -6,12 +6,12 @@ an Android App to find a Buy and Sell Products.
 - Chat with users
 - Get Notification when users interacts with you
 
-<img src="https://github.com/safwen005/Balouchi/blob/master/login.png" width="300">
-<img src="https://github.com/safwen005/Balouchi/blob/master/Screenshot_20201102-073522.png" width="300">
-<img src="https://github.com/safwen005/Balouchi/blob/master/Screenshot_20201102-074031.png" width="300">
-<img src="https://github.com/safwen005/Balouchi/blob/master/Screenshot_20201102-074308.png" width="300">
-<img src="https://github.com/safwen005/Balouchi/blob/master/Screenshot_20201102-074329.png" width="300">
-<img src="https://github.com/safwen005/Balouchi/blob/master/Screenshot_20201102-074539.png" width="300">
+<img src="https://github.com/safwen005/Balouchi/blob/master/login.png" width="300"> <img src="https://github.com/safwen005/Balouchi/blob/master/Screenshot_20201102-073522.png" width="300">
+
+<img src="https://github.com/safwen005/Balouchi/blob/master/Screenshot_20201102-074031.png" width="300"> <img src="https://github.com/safwen005/Balouchi/blob/master/Screenshot_20201102-074308.png" width="300">
+
+
+<img src="https://github.com/safwen005/Balouchi/blob/master/Screenshot_20201102-074539.png" width="300"> <img src="https://github.com/safwen005/Balouchi/blob/master/Screenshot_20201102-074329.png" width="300">
 
 ## Library
 
