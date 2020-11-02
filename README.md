@@ -5,6 +5,7 @@ an Android App to find a Buy and Sell Products.
 - Search for Products by Location
 - Chat with users
 - Get Notification when users interacts with you
+- Know user online / offline status
 
 <img src="https://github.com/safwen005/Balouchi/blob/master/login.png" width="300"> <img src="https://github.com/safwen005/Balouchi/blob/master/Screenshot_20201102-073522.png" width="300">
 
