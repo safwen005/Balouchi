@@ -85,6 +85,9 @@ class Home_viewmodel : ViewModel() {
                             R.id.complete_post -> navigate(R.id.action_complete_post_to_profilee)
                             R.id.product -> navigate(R.id.action_product_to_profilee)
                             R.id.all_categories -> navigate(R.id.action_all_categories_to_profilee)
+                            R.id.specific_categorie -> navigate(R.id.action_specific_categorie_to_profilee)
+                            R.id.conversation -> navigate(R.id.action_conversation_to_profilee)
+
                         }
                     }
                     return@setOnMenuItemClickListener true

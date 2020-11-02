@@ -70,7 +70,6 @@ class Chat_Viewmodel: ViewModel() {
 
     @ExperimentalTime
     fun prepare() {
-        log("chat prepare")
             lifecycleOwner.apply {
                 (requireActivity() as home).apply {
                     save_chat("no")
@@ -99,6 +98,7 @@ class Chat_Viewmodel: ViewModel() {
                             hashMapOf("uid" to auth.currentUser?.uid)
                         ).observe(lifecycleOwner,
                             {
+                                log(it)
                                 dialog.dismiss()
                                 mylast.clear()
                                 if (it is Boolean) {

@@ -167,7 +167,7 @@
                 style="@style/blue"
                 android:background="@drawable/btn"
                 android:textColor="@color/white"
-                android:textSize="@dimen/_11ssp"
+                android:textSize="@dimen/_9ssp"
                 android:textStyle="bold"
                 android:text="تسجيل الدخول"
                 android:onClick="@{viewmodel::Click}"

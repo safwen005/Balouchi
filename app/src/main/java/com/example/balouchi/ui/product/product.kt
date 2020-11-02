@@ -17,6 +17,7 @@ import com.example.balouchi.ui.home.home
 import com.example.balouchi.ui.login.NoInternetBroad
 import com.example.balouchi.util.getApp
 import com.example.balouchi.util.gone
+import com.example.balouchi.util.log
 import com.example.balouchi.util.visibile
 import kotlinx.android.synthetic.main.product.view.*
 import kotlin.time.ExperimentalTime

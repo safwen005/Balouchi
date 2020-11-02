@@ -80,6 +80,9 @@
         <action
             android:id="@+id/action_specific_categorie_to_post2"
             app:destination="@id/post2" />
+        <action
+            android:id="@+id/action_specific_categorie_to_profilee"
+            app:destination="@id/profilee" />
     </fragment>
     <fragment
         android:id="@+id/all_categories"
@@ -193,6 +196,9 @@
         <action
             android:id="@+id/action_conversation_to_specific_categorie"
             app:destination="@id/specific_categorie" />
+        <action
+            android:id="@+id/action_conversation_to_profilee"
+            app:destination="@id/profilee" />
     </fragment>
 
 </navigation>

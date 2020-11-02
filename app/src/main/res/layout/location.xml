@@ -80,7 +80,7 @@
                         android:textAlignment="viewEnd"
                         android:layout_marginEnd="@dimen/_5sdp"
                         android:textColor="#FFFFFF"
-                        android:textSize="@dimen/_10ssp" />
+                        android:textSize="@dimen/_8ssp" />
                 </LinearLayout>
 
                 <SeekBar

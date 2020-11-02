@@ -111,7 +111,7 @@
                     >
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="@dimen/_120sdp"
+                        android:layout_height="@dimen/_180sdp"
                         android:orientation="vertical"
                         >
                         <LinearLayout
@@ -153,7 +153,7 @@
                                 android:layout_height="match_parent"
                                 android:singleLine="true"
                                 android:textColor="@color/black"
-                                android:textSize="@dimen/_7ssp"
+                                android:textSize="@dimen/_9ssp"
                                 android:layout_marginTop="@dimen/_3sdp"
                                 android:layout_marginBottom="@dimen/_3sdp"
                                 android:layout_marginEnd="@dimen/_7sdp"
@@ -168,7 +168,7 @@
                                 <TextView
                                     android:id="@+id/p_vue"
                                     android:fontFamily="@font/items"
-                                    android:layout_weight="1"
+                                    android:layout_weight="2"
                                     android:layout_width="match_parent"
                                     android:layout_height="match_parent"
                                     android:textColor="#656161"
@@ -185,7 +185,7 @@
                                 <TextView
                                     android:fontFamily="@font/items"
                                     android:id="@+id/mydate"
-                                    android:layout_weight="1.6"
+                                    android:layout_weight="1"
                                     android:layout_width="match_parent"
                                     android:layout_height="match_parent"
                                     android:singleLine="true"
@@ -251,10 +251,7 @@
                             android:fontFamily="@font/et"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:layout_marginTop="@dimen/_2sdp"
-                            android:layout_marginStart="@dimen/_50sdp"
-                            android:layout_marginEnd="@dimen/_50sdp"
-                            android:layout_marginBottom="@dimen/_2sdp"
+                            android:layout_margin="@dimen/_10sdp"
                             android:drawableEnd="@drawable/ic_favorite"
                             android:text="أضف للمفضلة"
                             android:textSize="@dimen/_10ssp"
@@ -592,7 +589,7 @@
                                 style="@style/blue"
                                 android:text="ضع تقييمك"
                                 android:textStyle="bold"
-                                android:textSize="@dimen/_12ssp"
+                                android:textSize="@dimen/_9ssp"
                                 android:onClick="@{viewmodel::Click}"
                                 />
                         </RelativeLayout>

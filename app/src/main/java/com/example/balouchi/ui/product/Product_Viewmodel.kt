@@ -278,142 +278,147 @@ class Product_Viewmodel : ViewModel() {
     @SuppressLint("SetTextI18n")
     fun prepare() {
         lifecycleOwner.apply {
-                (lifecycleOwner.requireActivity() as home).apply {
-                    Activity = this
-                    dialog = getSpots()
-                    mytool.navigationIcon = svg(R.drawable.ic_back)
-                    Firestore= FirebaseFirestore.getInstance()
-                    mytool.setNavigationOnClickListener {
-                        onBackPressed()
-                    }
-                    controlle.apply {
-                        setFocusable(true)
-                        isFocusableInTouchMode = true
-                        requestFocus()
-                    }
+            (lifecycleOwner.requireActivity() as home).apply {
+                Activity = this
+                dialog = getSpots()
+                mytool.navigationIcon = svg(R.drawable.ic_back)
+                Firestore = FirebaseFirestore.getInstance()
+                mytool.setNavigationOnClickListener {
+                    onBackPressed()
                 }
+                controlle.apply {
+                    setFocusable(true)
+                    isFocusableInTouchMode = true
+                    requestFocus()
+                }
+            }
 
             Activity.apply {
-                simple.timeZone= TimeZone.getTimeZone("GMT")
-            max(comment, max = 2)
-            dialog?.show()
-            manageUser.Function<Any>(
-                "theprod", hashMapOf("path" to path,
-                    "exist" to load_vue(path).also { if (!it) save_vue(path) })
-            ).observe(
-                lifecycleOwner,
-                {
-                    dialog?.dismiss()
-                    log(it)
-                    if (it is Boolean){
-                        toastr("هنالك مشكلة !")
-                        Activity.onBackPressed()
-                    }
-                    if (it is HashMap<*,*>){
-                    product = fromJson(it, Products::class)
-                    if (product.comments!!.size == 0)
-                        lifecycleOwner.opencc.gone()
-                    product.apply {
-                        Location.coord?.let {
-                            get_direction.visibile()
+                simple.timeZone = TimeZone.getTimeZone("GMT")
+                max(comment, max = 2)
+                dialog?.show()
+                manageUser.Function<Any>(
+                    "theprod", hashMapOf("path" to path,
+                        "exist" to load_vue(path).also { if (!it) save_vue(path) })
+                ).observe(
+                    lifecycleOwner,
+                    {
+                        log(it)
+                        dialog?.dismiss()
+                        if (it is Boolean) {
+                            toastr("هنالك مشكلة !")
+                            Activity.onBackPressed()
                         }
-                        chat.setOnClickListener {
-                            dialog!!.apply {
-                                show()
-                                manageUser.Function<Any>("startchat" , hashMapOf("uid1" to auth.currentUser!!.uid,"uid2" to profile?.uid)).observe(viewLifecycleOwner
-                                ) {
-                                    thepath ->
-                                    if (thepath is String) {
-                                        Firestore.document("users/"+profile?.uid).get().addOnSuccessListener {
-                                                doc ->
-                                                doc.toObject(user_data::class.java)?.apply {
-                                                             dismiss()
-                                                             view.NavController.navigate(
-                                                                 R.id.action_product_to_conversation,
-                                                                 bundleOf(
-                                                                     "data" to last(
-                                                                         picture = personal_info?.ppicture?.path,
-                                                                         path = thepath,
-                                                                         token = profile?.token,
-                                                                         username = personal_info?.username,
-                                                                         online =if (lastlogin==null) false else ((Timestamp.now().toDate().time.milliseconds.toLongMilliseconds())-lastlogin!!)<=60000,
-                                                                         uid = uid,
-                                                                         lastlogin = lastlogin
-                                                                     )
-                                                                 )
-                                                             )
-                                               }
-                                         }
+                        product = fromJson(it, Products::class)
+                        if (product.comments!!.size == 0)
+                            lifecycleOwner.opencc.gone()
+                        product.apply {
+                            Location.coord?.let {
+                                get_direction.visibile()
+                            }
+                            chat.setOnClickListener {
+                                dialog!!.apply {
+                                    show()
+                                    manageUser.Function<Any>(
+                                        "startchat",
+                                        hashMapOf(
+                                            "uid1" to auth.currentUser!!.uid,
+                                            "uid2" to profile?.uid
+                                        )
+                                    ).observe(
+                                        viewLifecycleOwner
+                                    ) { thepath ->
+                                        if (thepath is String) {
+                                            Firestore.document("users/" + profile?.uid).get()
+                                                .addOnSuccessListener { doc ->
+                                                    doc.toObject(user_data::class.java)?.apply {
+                                                        dismiss()
+                                                        view.NavController.navigate(
+                                                            R.id.action_product_to_conversation,
+                                                            bundleOf(
+                                                                "data" to last(
+                                                                    picture = personal_info?.ppicture?.path,
+                                                                    path = thepath,
+                                                                    token = profile?.token,
+                                                                    username = personal_info?.username,
+                                                                    online = if (lastlogin == null) false else ((Timestamp.now()
+                                                                        .toDate().time.milliseconds.toLongMilliseconds()) - lastlogin!!) <= 60000,
+                                                                    uid = uid,
+                                                                    lastlogin = lastlogin
+                                                                )
+                                                            )
+                                                        )
+                                                    }
+                                                }
+                                        }
                                     }
                                 }
                             }
-                        }
-                        mytool.title = "         ${name}         "
-                        p_name.text = name
+                            mytool.title = "         ${name}         "
+                            p_name.text = name
 
-                        if (pictures!!.size>0)
-                        mytools.glide(
-                            Activity.application,
-                            pictures!![0].path,
-                            lifecycleOwner.p_img
-                        )
-                        else lifecycleOwner.p_img.setBackgroundResource(R.drawable.ic_image_not_found_black)
-                        buysell.text = (if (buy_sell!!) "شراء" else "بيع")
-                        Description?.date?.toLong()?.let {
-                            calendar.timeInMillis = it
-                            calendar.add(Calendar.HOUR,1)
-                            mydate.text = simple.format(calendar.time)
-                        }
-                        p_vue.text = vue.toString()
-                        p_location.text = Location.adress ?: "بدون عنوان"
-                        p_price.text = price.toString() + " دينار "
-                        if (product.comments?.size!! > 0)
-                            if (comments!!.size > 0 && myrating.isVisible())
-                                myrating.gone()
-                        Description!!.apply {
-                            p_categorie.text =
-                                resources.getStringArray(R.array.categories)[categorie!!-1]
-                            p_condition.text = resources.getStringArray(R.array.casee)[condition!!-1]
-                            p_garanty.text = (if (garanty == 0) "نعم" else "لا")
-                            p_description.text = description
-                            p_description.underline()
-                        }
-                        profile?.apply {
-                            uid?.let {
-                                if (it == auth.currentUser!!.uid){
-                                    contacts.gone()
-                                    pprofile.gone()
-                                }
-                            }
-                            if (picture==null)
-                                mypicture.setBackgroundResource(R.drawable.ic_avatar)
-                            else
-                            mytools.glide(Activity.application, picture, mypicture, gif)
-                            myname.text = username
-                            lastlogin?.toLong()?.let {
+                            if (pictures!!.size > 0)
+                                mytools.glide(
+                                    Activity.application,
+                                    pictures!![0].path,
+                                    lifecycleOwner.p_img
+                                )
+                            else lifecycleOwner.p_img.setBackgroundResource(R.drawable.ic_image_not_found_black)
+                            buysell.text = (if (buy_sell!!) "شراء" else "بيع")
+                            Description?.date?.toLong()?.let {
                                 calendar.timeInMillis = it
-                                mylastlogin.text = simple.format(calendar.time)
+                                calendar.add(Calendar.HOUR, 1)
+                                mydate.text = simple.format(calendar.time)
                             }
-                            if (phone == null)
-                                phone_layout.gone()
+                            p_vue.text = vue.toString()
+                            p_location.text = Location.adress ?: "بدون عنوان"
+                            p_price.text = price.toString() + " دينار "
+                            if (product.comments?.size!! > 0)
+                                if (comments!!.size > 0 && myrating.isVisible())
+                                    myrating.gone()
+                            Description!!.apply {
+                                p_categorie.text =
+                                    resources.getStringArray(R.array.categories)[categorie!! - 1]
+                                p_condition.text =
+                                    resources.getStringArray(R.array.casee)[condition!! - 1]
+                                p_garanty.text = (if (garanty == 0) "نعم" else "لا")
+                                p_description.text = description
+                                p_description.underline()
+                            }
+                            profile?.apply {
+                                uid?.let {
+                                    if (it == auth.currentUser!!.uid) {
+                                        contacts.gone()
+                                        pprofile.gone()
+                                    }
+                                }
+                                if (picture == null)
+                                    mypicture.setBackgroundResource(R.drawable.ic_avatar)
+                                else
+                                    mytools.glide(Activity.application, picture, mypicture, gif)
+                                myname.text = username
+                                lastlogin?.toLong()?.let {
+                                    calendar.timeInMillis = it
+                                    mylastlogin.text = simple.format(calendar.time)
+                                }
+                                if (phone == null)
+                                    phone_layout.gone()
+                            }
+                            myComments.clear()
+                            myComments.addAll(product.comments!!)
+
+                            comments_recycler.apply {
+                                layoutManager = LinearLayoutManager(
+                                    Activity,
+                                    RecyclerView.VERTICAL,
+                                    false
+                                )
+                                adapter = Comments_recycler(this@Product_Viewmodel, myComments)
+                            }
+
                         }
-                        myComments.clear()
-                        myComments.addAll(product.comments!!)
-
-                        comments_recycler.apply {
-                            layoutManager = LinearLayoutManager(
-                                Activity,
-                                RecyclerView.VERTICAL,
-                                false
-                            )
-                            adapter = Comments_recycler(this@Product_Viewmodel, myComments)
-                        }
-
-                    }
-                    dialog!!.dismiss()
-                    }
-                })
-
+                        dialog!!.dismiss()
+                    })
             }
         }
     }

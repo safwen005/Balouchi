@@ -77,6 +77,7 @@ class Profile_viewmodel : ViewModel(),View.OnClickListener{
                     float_add.bringToFront()
 
                     Firestore.document("users/"+(my_uid ?: auth.currentUser?.uid)).get().addOnSuccessListener {
+                        log(it.toObject(user_data::class.java))
 
                         if (stop)
                             dialog.dismiss()
@@ -112,6 +113,7 @@ class Profile_viewmodel : ViewModel(),View.OnClickListener{
                                         about.text = "حول " + "${displayName} ,"
                                     } else finish()
 
+                                    log(photoUrl)
                                     if (photoUrl != null) {
                                         loaduri(
                                             if (isFacebook()) "https://graph.facebook.com/${

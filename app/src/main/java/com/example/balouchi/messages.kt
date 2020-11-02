@@ -50,7 +50,6 @@ class messages : Fragment() {
         prepare()
         (requireActivity() as home).view.menu(true)
         requireActivity().apply {
-            toolbar_text(" الرسائل و الاشعارات ")
             v.apply {
                 tab.apply {
                     tab.setupWithViewPager(view_pager)

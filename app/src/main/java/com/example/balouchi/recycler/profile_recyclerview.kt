@@ -32,7 +32,7 @@ class profile_recyclerview(val profile: Profileitems_ViewModel, var array:ArrayL
     var Alert:AlertDialog?=null
     var Activity:home
     var dialog:AlertDialog
-    var view:View?=null
+    var View:View?=null
     var u: UnifiedNativeAd?=null
 
     init {
@@ -105,16 +105,16 @@ class profile_recyclerview(val profile: Profileitems_ViewModel, var array:ArrayL
 
                     cancel.setOnClickListener {
                         show_hide(true,change,thepic)
-                        this@profile_recyclerview.view=null
+                        this@profile_recyclerview.View=null
                     }
 
                      if (mine.second){
                              setOnLongClickListener {
                                  if (thepic.isVisible()){
-                                     view?.apply {
+                                     View?.apply {
                                          show_hide(true, change, thepic).takeIf { !thepic.isVisible()}
                                      }
-                                     this@profile_recyclerview.view=null
+                                     this@profile_recyclerview.View=null
                                      show_hide(false,change,thepic,edit.takeIf { !mine.first })
                                  }
                                  return@setOnLongClickListener true
