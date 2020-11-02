@@ -6,13 +6,7 @@ an Android App to find a Buy and Sell Products.
 - Chat with users
 - Get Notification when users interacts with you
 
-
-![Screenshot](https://github.com/safwen005/Balouchi/blob/master/login.png)
-![Screenshot](https://github.com/safwen005/Balouchi/blob/master/Screenshot_20201102-073522.png)
-![Screenshot](https://github.com/safwen005/Balouchi/blob/master/Screenshot_20201102-074031.png)
-![Screenshot](https://github.com/safwen005/Balouchi/blob/master/Screenshot_20201102-074308.png)
-![Screenshot](https://github.com/safwen005/Balouchi/blob/master/Screenshot_20201102-074329.png)
-![Screenshot](https://github.com/safwen005/Balouchi/blob/master/Screenshot_20201102-074539.png)
+<img src="https://github.com/safwen005/Balouchi/blob/master/login.png" width="48">
 
 ## Library
 
