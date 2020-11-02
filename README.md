@@ -43,6 +43,12 @@ an Android App to find a Buy and Sell Products.
 - Google Translate
 - OpenCage Geocoding API
 
+## App Architecture
+
+- MVVM
+- databinding
+- Kotlin
+
 ## Developed By
 
 Safwen chaieb
