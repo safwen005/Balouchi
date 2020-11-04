@@ -20,7 +20,7 @@ https://github.com/safwen005/Balouchi/blob/master/index.js
 
 ## APK
 
-https://i.diawi.com/xJxDCX
+https://drive.google.com/file/d/1tYM10zpYo2ec6xuWpOuImSN--TNJhqDE/view?usp=sharing
 
 ## Library
 
