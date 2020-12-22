@@ -1,6 +1,6 @@
 # Balouchi
 
-an Android App to find a Buy and Sell Products.
+an Android App to a Buy and Sell Products.
 
 - Search for Products by Location
 - Chat with users
